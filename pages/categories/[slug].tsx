@@ -17,7 +17,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
     include: { products: true },
   });
-  return { props: { category } };
+  if (category) {
+    return { props: { category } };
+  } else {
+    return { notFound: true };
+  }
 };
 
 const CategoryPage: NextPage = ({ category }: any) => {

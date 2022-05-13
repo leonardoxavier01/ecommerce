@@ -16,12 +16,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   });
 
-  /* const product = {
-    name: "name do produto test",
-    price: 10.5,
-    description: "lorem ipsum lorem",
-  }; */
-  return { props: { product: product } };
+  if (product) {
+    return { props: { product: product } };
+  } else {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 const ProductPage: NextPage = ({ product }: any) => {
