@@ -1,7 +1,7 @@
 import type { NextPage, GetServerSideProps } from "next";
 import prisma from "../../lib/prisma";
 import Link from "next/link";
-import NumberFormat from "react-number-format";
+import Price from "../../components/price.tsx/price";
 import { ParsedUrlQuery } from "querystring";
 
 interface IParams extends ParsedUrlQuery {
@@ -42,14 +42,9 @@ const CategoryPage: NextPage = ({ category }: any) => {
               </Link>
             </h2>
             <p>
-              <NumberFormat
-                value={product.price}
-                displayType={"text"}
-                decimalSeparator={","}
-                thousandSeparator={"."}
-                fixedDecimalScale={true}
-                decimalScale={2}
-                prefix={"R$"}
+              <Price
+                price={product.price}
+                priceWidthDiscount={product.priceWidthDiscount}
               />
             </p>
           </div>

@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import prisma from "../../lib/prisma";
-import NumberFormat from "react-number-format";
 import { ParsedUrlQuery } from "querystring";
+import Price from "../../components/price.tsx/price";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -25,23 +25,29 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
+/* const showPrice = (product) => {
+  if (product.priceWithDiscount > 0) {
+    return (
+      <>
+        <p>De: {product.price}</p>
+        <p>Por: {product.priceWithDiscount}</p>
+      </>
+    );
+  } else {
+    return <p>{product.price}</p>;
+  }
+};
+ */
 const ProductPage: NextPage = ({ product }: any) => {
   return (
     <div>
       <h1>{product.name}</h1>
       <h2>{product.headline}</h2>
       <p>{product.description}</p>
-      <p>
-        <NumberFormat
-          value={product.price}
-          displayType={"text"}
-          decimalSeparator={","}
-          thousandSeparator={"."}
-          fixedDecimalScale={true}
-          decimalScale={2}
-          prefix={"R$"}
-        />
-      </p>
+      <Price
+        price={product.price}
+        priceWidthDiscount={product.priceWidthDiscount}
+      />
     </div>
   );
 };
