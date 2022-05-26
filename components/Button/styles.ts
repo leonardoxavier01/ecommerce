@@ -9,4 +9,7 @@ min-width: 8rem;
 padding: 0 1rem;
 color: #fff;
 cursor: pointer;
+:hover{
+    border: 2px solid black;
+}
 `
