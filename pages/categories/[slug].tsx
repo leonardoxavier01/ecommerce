@@ -34,29 +34,15 @@ const CategoryPage: NextPage = ({ category }: any) => {
       <h1>{category.name}</h1>
       <div>
         {category.products.map((product: any) => (
-          <div key={product.id}>
-            <h2>
-              <Link
-                href={{
-                  pathname: "/products/[slug]",
-                  query: { slug: product.slug },
-                }}
-              >
-                {product.name}
-              </Link>
-            </h2>
-            <Price
-              price={product.price}
-              priceWidthDiscount={product.priceWidthDiscount}
-            />
-            <Card
-              img={Mandalorian}
-              name={product.name}
-              headiline={product.headline}
-              price={product.price}
-              priceWidthDiscount={product.priceWidthDiscount}
-            />
-          </div>
+          <Card
+            key={product.id}
+            slug={product.slug}
+            img={Mandalorian}
+            name={product.name}
+            headiline={product.headline}
+            price={product.price}
+            priceWidthDiscount={product.priceWidthDiscount}
+          />
         ))}
       </div>
     </div>
