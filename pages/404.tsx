@@ -41,7 +41,7 @@ export const TextContent = styled.div`
 `;
 
 export const BoxButton = styled.div`
-  margin-bottom: 5rem;
+  margin: 2rem 0;
 `;
 
 const CustomError = () => {
