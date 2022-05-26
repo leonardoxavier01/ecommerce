@@ -1,12 +1,8 @@
 import type { NextPage, GetServerSideProps } from "next";
 import prisma from "../../lib/prisma";
-import Link from "next/link";
-import Price from "../../components/price.tsx/price";
 import { ParsedUrlQuery } from "querystring";
 import Card from "../../components/Card";
-
-import Mandalorian from "../../assets/images/the-mandalorian.png";
-import ProductPage from "../products/[slug]";
+import mandalorian from "../../assets/images/the-mandalorian.png";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -37,7 +33,7 @@ const CategoryPage: NextPage = ({ category }: any) => {
           <Card
             key={product.id}
             slug={product.slug}
-            img={Mandalorian}
+            img={mandalorian}
             name={product.name}
             headiline={product.headline}
             price={product.price}
