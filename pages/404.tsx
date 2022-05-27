@@ -15,14 +15,16 @@ export const BoxImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 35rem;
-  width: 30%;
+  max-height: 35rem;
+  width: 18rem;
   margin: 2rem 0;
   background-color: #8257e6;
   border-radius: 36% 64% 46% 54% / 30% 42% 58% 70%;
+  border: 1px solid #d3d3d3;
+  box-shadow: 1px 2px 13px 0px rgba(0, 0, 0, 0.404);
 `;
 export const TextContent = styled.div`
-  width: 50%;
+  width: 40rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -41,7 +43,7 @@ export const TextContent = styled.div`
 `;
 
 export const BoxButton = styled.div`
-  margin: 2rem 0;
+  margin: 1rem 0 3rem 0;
 `;
 
 const CustomError = () => {
