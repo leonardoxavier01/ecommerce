@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
   padding: 1.5rem;
   height: 24rem;
   border: 1px solid #d3d3d3;
-  cursor: pointer;
   box-shadow: 1px 2px 13px 0px rgba(0, 0, 0, 0.404);
 `;
 
@@ -19,6 +18,7 @@ export const BoxImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const BoxText = styled.div`

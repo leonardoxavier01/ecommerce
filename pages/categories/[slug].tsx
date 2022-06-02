@@ -3,6 +3,8 @@ import prisma from "../../lib/prisma";
 import { ParsedUrlQuery } from "querystring";
 import Card from "../../components/Card";
 import mandalorian from "../../assets/images/the-mandalorian.png";
+import Link from "next/link";
+import Price from "../../components/price.tsx/price";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -30,15 +32,31 @@ const CategoryPage: NextPage = ({ category }: any) => {
       <h1>{category.name}</h1>
       <div>
         {category.products.map((product: any) => (
-          <Card
-            key={product.id}
-            slug={product.slug}
-            img={mandalorian}
-            name={product.name}
-            headiline={product.headline}
-            price={product.price}
-            priceWidthDiscount={product.priceWidthDiscount}
-          />
+          <div key={product.id}>
+            <h2>
+              <Link
+                href={{
+                  pathname: "/products/[slug]",
+                  query: { slug: product.slug },
+                }}
+              >
+                {product.name}
+              </Link>
+            </h2>
+            <Price
+              price={product.price}
+              priceWidthDiscount={product.priceWidthDiscount}
+            />
+            <Card
+              key={product.id}
+              slug={product.slug}
+              img={mandalorian}
+              name={product.name}
+              headiline={product.headline}
+              price={product.price}
+              priceWidthDiscount={product.priceWidthDiscount}
+            />
+          </div>
         ))}
       </div>
     </div>

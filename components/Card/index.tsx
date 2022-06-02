@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
+import { useRouter } from "next/router";
 import Button from "../Button";
 import Price from "../price.tsx/price";
 import { Wrapper, BoxImage, BoxText, BoxPrice, BoxButton } from "./styles";
@@ -15,36 +14,36 @@ type CardProps = {
 };
 
 export default function Card(props: CardProps) {
+  const router = useRouter();
+  const navigationByRoute = () => {
+    router.push({
+      pathname: "/products/[slug]",
+      query: {
+        slug: props.slug,
+      },
+    });
+  };
   return (
     <Wrapper>
-      <Link
-        href={{
-          pathname: "/products/[slug]",
-          query: { slug: props.slug },
-        }}
-      >
-        <a>
-          <BoxImage>
-            <Image
-              src={props.img}
-              alt={`image funko ${props.img}`}
-              width={190}
-              height={190}
-            />
-          </BoxImage>
-          <BoxText>
-            <p>Funko Pop</p>
-            <h2>{props.name}</h2>
-            <h3>{props.headiline}</h3>
-          </BoxText>
-          <BoxPrice>
-            <Price
-              price={props.price}
-              priceWidthDiscount={props.priceWidthDiscount}
-            />
-          </BoxPrice>
-        </a>
-      </Link>
+      <BoxImage onClick={() => navigationByRoute()}>
+        <Image
+          src={props.img}
+          alt={`image funko ${props.img}`}
+          width={190}
+          height={190}
+        />
+      </BoxImage>
+      <BoxText>
+        <p>Funko Pop</p>
+        <h2>{props.name}</h2>
+        <h3>{props.headiline}</h3>
+      </BoxText>
+      <BoxPrice>
+        <Price
+          price={props.price}
+          priceWidthDiscount={props.priceWidthDiscount}
+        />
+      </BoxPrice>
       <BoxButton>
         <Button>Add to Card</Button>
       </BoxButton>
