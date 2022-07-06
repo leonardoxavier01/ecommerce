@@ -23,6 +23,7 @@ export default function Card(props: CardProps) {
       },
     });
   };
+
   return (
     <Wrapper>
       <BoxImage onClick={() => navigationByRoute()}>

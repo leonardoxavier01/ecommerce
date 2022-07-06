@@ -46,7 +46,7 @@ const ProductPage: NextPage = ({ product }: any) => {
       <p>{product.description}</p>
       <Price
         price={product.price}
-        priceWidthDiscount={product.priceWidthDiscount}
+        priceWidthDiscount={product.priceWithDiscount}
       />
     </div>
   );

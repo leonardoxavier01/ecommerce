@@ -7,15 +7,30 @@ import Link from "next/link";
 import Price from "../../components/price.tsx/price";
 
 interface IParams extends ParsedUrlQuery {
-  slug: string;
+  id: string;
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.params as IParams;
+  const { id } = context.params as IParams;
 
-  const category = await prisma.category.findFirst({
+  const responseCategory = await fetch(
+    `https://quiet-anchorage-15734.herokuapp.com/categories/${id}`
+  );
+  const categoryObject = await responseCategory.json();
+
+  const responseProducts = await fetch(
+    `https://quiet-anchorage-15734.herokuapp.com/categories/${id}/products`
+  );
+  const productObject = await responseProducts.json();
+  
+  const category = {
+    ...categoryObject,
+    products: productObject,
+  };
+
+  /*  const category = await prisma.category.findFirst({
     where: {
-      slug: slug,
+      id: id,
     },
     include: { products: true },
   });
@@ -23,7 +38,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return { props: { category } };
   } else {
     return { notFound: true };
-  }
+  } */
+  return { props: { category } };
 };
 
 const CategoryPage: NextPage = ({ category }: any) => {
@@ -45,16 +61,7 @@ const CategoryPage: NextPage = ({ category }: any) => {
             </h2>
             <Price
               price={product.price}
-              priceWidthDiscount={product.priceWidthDiscount}
-            />
-            <Card
-              key={product.id}
-              slug={product.slug}
-              img={mandalorian}
-              name={product.name}
-              headiline={product.headline}
-              price={product.price}
-              priceWidthDiscount={product.priceWidthDiscount}
+              priceWidthDiscount={product.priceWithDiscount}
             />
           </div>
         ))}
@@ -64,3 +71,15 @@ const CategoryPage: NextPage = ({ category }: any) => {
 };
 
 export default CategoryPage;
+
+/* 
+<Card
+              key={product.id}
+              slug={product.slug}
+              img={mandalorian}
+              name={product.name}
+              headiline={product.headline}
+              price={product.price}
+              priceWidthDiscount={product.priceWidthDiscount}
+            />
+*/
