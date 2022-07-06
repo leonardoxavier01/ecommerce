@@ -1,7 +1,7 @@
 import type { NextPage, GetServerSideProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 import Link from "next/link";
-import Price from "../../components/price.tsx/price";
+import Price from "../../components/Price";
 
 interface IParams extends ParsedUrlQuery {
   id: string;
