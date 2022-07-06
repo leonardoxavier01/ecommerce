@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/router";
 import Button from "../Button";
-import Price from "../price.tsx/price";
+import Price from "../Price";
 import { Wrapper, BoxImage, BoxText, BoxPrice, BoxButton } from "./styles";
 
 type CardProps = {
@@ -9,7 +9,7 @@ type CardProps = {
   name: string;
   headiline: string;
   price: number;
-  priceWidthDiscount: number;
+  priceWithDiscount: number;
   slug: string;
 };
 
@@ -40,10 +40,10 @@ export default function Card(props: CardProps) {
         <h3>{props.headiline}</h3>
       </BoxText>
       <BoxPrice>
-        <Price
-          price={props.price}
-          priceWidthDiscount={props.priceWidthDiscount}
-        />
+      <Price
+        price={props.price}
+        priceWithDiscount={props.priceWithDiscount}
+      />
       </BoxPrice>
       <BoxButton>
         <Button>Add to Card</Button>
