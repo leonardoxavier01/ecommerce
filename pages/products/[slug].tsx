@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage } from "next";
-import prisma from "../../lib/prisma";
 import { ParsedUrlQuery } from "querystring";
 import Price from "../../components/price.tsx/price";
 
@@ -10,14 +9,13 @@ interface IParams extends ParsedUrlQuery {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.params as IParams;
 
-  const product = await prisma.product.findFirst({
-    where: {
-      slug: slug,
-    },
-  });
+  const responseProduct = await fetch(`${process.env.BACKEND_API}/products/${slug}`);
+ 
+  const productObject = await responseProduct.json()
 
-  if (product) {
-    return { props: { product: product } };
+
+  if (productObject) {
+    return { props: { product: productObject } };
   } else {
     return {
       notFound: true,
@@ -25,19 +23,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-/* const showPrice = (product) => {
-  if (product.priceWithDiscount > 0) {
-    return (
-      <>
-        <p>De: {product.price}</p>
-        <p>Por: {product.priceWithDiscount}</p>
-      </>
-    );
-  } else {
-    return <p>{product.price}</p>;
-  }
-};
- */
 const ProductPage: NextPage = ({ product }: any) => {
   return (
     <div>
@@ -46,7 +31,7 @@ const ProductPage: NextPage = ({ product }: any) => {
       <p>{product.description}</p>
       <Price
         price={product.price}
-        priceWidthDiscount={product.priceWithDiscount}
+        priceWithDiscount={product.priceWithDiscount}
       />
     </div>
   );

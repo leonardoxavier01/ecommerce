@@ -1,7 +1,15 @@
 import NumberFormat from "react-number-format";
 
-const Price = ({ price, priceWidthDiscount }) => {
-  if (priceWidthDiscount > 0) {
+interface PriceInput {
+  price: number;
+  priceWithDiscount: number;
+}
+
+const Price = (params: PriceInput) => {
+  const { price } = params;
+  const { priceWithDiscount } = params;
+
+  if (priceWithDiscount > 0) {
     return (
       <>
         <p>
@@ -19,7 +27,7 @@ const Price = ({ price, priceWidthDiscount }) => {
         <p>
           Por:
           <NumberFormat
-            value={priceWidthDiscount}
+            value={priceWithDiscount}
             displayType={"text"}
             decimalSeparator={","}
             thousandSeparator={"."}

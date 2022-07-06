@@ -1,8 +1,5 @@
 import type { NextPage, GetServerSideProps } from "next";
-import prisma from "../../lib/prisma";
 import { ParsedUrlQuery } from "querystring";
-import Card from "../../components/Card";
-import mandalorian from "../../assets/images/the-mandalorian.png";
 import Link from "next/link";
 import Price from "../../components/price.tsx/price";
 
@@ -14,12 +11,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const { id } = context.params as IParams;
 
   const responseCategory = await fetch(
-    `https://quiet-anchorage-15734.herokuapp.com/categories/${id}`
+    `${process.env.BACKEND_API}/categories/${id}`
   );
   const categoryObject = await responseCategory.json();
 
   const responseProducts = await fetch(
-    `https://quiet-anchorage-15734.herokuapp.com/categories/${id}/products`
+    `${process.env.BACKEND_API}/categories/${id}/products`
   );
   const productObject = await responseProducts.json();
   
@@ -61,7 +58,7 @@ const CategoryPage: NextPage = ({ category }: any) => {
             </h2>
             <Price
               price={product.price}
-              priceWidthDiscount={product.priceWithDiscount}
+              priceWithDiscount={product.priceWithDiscount}
             />
           </div>
         ))}
@@ -71,15 +68,3 @@ const CategoryPage: NextPage = ({ category }: any) => {
 };
 
 export default CategoryPage;
-
-/* 
-<Card
-              key={product.id}
-              slug={product.slug}
-              img={mandalorian}
-              name={product.name}
-              headiline={product.headline}
-              price={product.price}
-              priceWidthDiscount={product.priceWidthDiscount}
-            />
-*/

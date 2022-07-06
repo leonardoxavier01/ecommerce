@@ -2,10 +2,8 @@ import type { NextPage, NextPageContext } from "next";
 import Link from "next/link";
 
 export const getServerSideProps = async (_context: NextPageContext) => {
-  const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/categories");
+  const response = await fetch(`${process.env.BACKEND_API}/categories`);
   const categories = await response.json();
-
-  // const categories = await prisma.category.findMany();
 
   return { props: { categories } };
 };
