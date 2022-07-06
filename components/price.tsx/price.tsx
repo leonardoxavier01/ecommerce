@@ -1,13 +1,6 @@
 import NumberFormat from "react-number-format";
 
-interface PriceInput {
-  price: number;
-  priceWithDiscount: number;
-}
-
-const Price = (params: PriceInput) => {
-  const { price } = params;
-  const { priceWithDiscount } = params;
+const Price = ({price, priceWithDiscount}) => {
 
   if (priceWithDiscount > 0) {
     return (
