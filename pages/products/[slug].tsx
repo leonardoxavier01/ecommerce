@@ -24,7 +24,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 };
 
-const ProductPage: NextPage = ({ product }: any) => {
+interface ProductProps{
+  name: string,
+  headline: string,
+  description: string,
+  price: number,
+  priceWithDiscount: number
+}
+
+interface ProductPageProps{
+  product: ProductProps
+}
+
+const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   return (
     <div>
       <h1>{product.name}</h1>
