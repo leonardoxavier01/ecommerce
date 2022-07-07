@@ -1,4 +1,6 @@
 import type { NextPage, NextPageContext } from "next";
+import { HomeProps } from "../types/interfaces";
+
 import Link from "next/link";
 
 export const getServerSideProps = async (_context: NextPageContext) => {
@@ -7,16 +9,6 @@ export const getServerSideProps = async (_context: NextPageContext) => {
 
   return { props: { categories } };
 };
-
-type Category = {
-  id: string;
-  name: string;
-  slug: string
-};
-
-type HomeProps ={
-  categories: Array<Category>
-}
 
 const Home: NextPage<HomeProps> = ({ categories }) => {
   return (

@@ -1,14 +1,10 @@
 import type { NextPage, GetServerSideProps } from "next";
-import { ParsedUrlQuery } from "querystring";
+import { CategoryPageProps } from "../../types/interfaces";
 import Link from "next/link";
 import Price from "../../components/Price";
 
-interface IParams extends ParsedUrlQuery {
-  id: string;
-}
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params as IParams;
+  const { id } = context.query
 
   const responseCategory = await fetch(
     `${process.env.BACKEND_API}/categories/${id}`
@@ -27,23 +23,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return { props: { category } };
 };
-
-interface ProductProps {
-  id: number;
-  name: string;
-  slug: string;
-  price: number;
-  priceWithDiscount: number;
-}
-
-interface CategoryProps {
-  name: string;
-  products: ProductProps[];
-}
-
-interface CategoryPageProps {
-  category: CategoryProps;
-}
 
 const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
   return (

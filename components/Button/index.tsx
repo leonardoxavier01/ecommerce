@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import { ButtonStyled } from "./styles";
 
 type ButtonProps = {
-  children: any;
+  children: ReactNode;
 };
 
 const Button = ({ children }: ButtonProps) => {

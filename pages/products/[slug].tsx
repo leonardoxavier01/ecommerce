@@ -1,13 +1,9 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { ParsedUrlQuery } from "querystring";
+import { ProductPageProps } from "../../types/interfaces";
 import Price from "../../components/Price";
 
-interface IParams extends ParsedUrlQuery {
-  slug: string;
-}
-
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.params as IParams;
+  const { slug } = context.query
 
   const responseProduct = await fetch(
     `${process.env.BACKEND_API}/products/${slug}`
@@ -23,18 +19,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 };
-
-interface ProductProps{
-  name: string,
-  headline: string,
-  description: string,
-  price: number,
-  priceWithDiscount: number
-}
-
-interface ProductPageProps{
-  product: ProductProps
-}
 
 const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   return (
