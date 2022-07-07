@@ -1,6 +1,10 @@
 import NumberFormat from "react-number-format";
 
-const BRLFormat = ({ value }) => {
+interface IBRLFormat {
+  value: number;
+}
+
+const BRLFormat = ({ value }: IBRLFormat) => {
   return (
     <NumberFormat
       value={value}
@@ -14,7 +18,7 @@ const BRLFormat = ({ value }) => {
   );
 };
 
-const withDiscount = (price, priceWithDiscount) => {
+const withDiscount = (price: number, priceWithDiscount: number) => {
   const discount = (1 - priceWithDiscount / price) * 100;
 
   return (
@@ -43,7 +47,7 @@ const withDiscount = (price, priceWithDiscount) => {
   );
 };
 
-const withoutDiscount = (price) => {
+const withoutDiscount = (price: number) => {
   return (
     <p>
       <BRLFormat value={price} />
@@ -51,11 +55,14 @@ const withoutDiscount = (price) => {
   );
 };
 
-const Price = ({ price, priceWithDiscount }) => {
-  if (priceWithDiscount > 0)
-    return withDiscount(price, priceWithDiscount)
-  else
-    return withoutDiscount(price)
+interface IPrice {
+  price: number;
+  priceWithDiscount: number;
 }
 
-export default Price
+const Price = ({ price, priceWithDiscount }: IPrice) => {
+  if (priceWithDiscount > 0) return withDiscount(price, priceWithDiscount);
+  else return withoutDiscount(price);
+};
+
+export default Price;
