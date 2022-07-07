@@ -19,27 +19,33 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     `${process.env.BACKEND_API}/categories/${id}/products`
   );
   const productObject = await responseProducts.json();
-  
+
   const category = {
     ...categoryObject,
     products: productObject,
   };
 
-  /*  const category = await prisma.category.findFirst({
-    where: {
-      id: id,
-    },
-    include: { products: true },
-  });
-  if (category) {
-    return { props: { category } };
-  } else {
-    return { notFound: true };
-  } */
   return { props: { category } };
 };
 
-const CategoryPage: NextPage = ({ category }: any) => {
+interface ProductProps {
+  id: number;
+  name: string;
+  slug: string;
+  price: number;
+  priceWithDiscount: number;
+}
+
+interface CategoryProps {
+  name: string;
+  products: ProductProps[];
+}
+
+interface CategoryPageProps {
+  category: CategoryProps;
+}
+
+const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
   return (
     <div>
       <h1>{category.name}</h1>
