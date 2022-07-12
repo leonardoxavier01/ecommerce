@@ -1,25 +1,14 @@
 import type { NextPage, GetServerSideProps } from "next";
 import { CategoryPageProps } from "../../types/interfaces";
+import product_services from "../../services/product_services";
 import Link from "next/link";
 import Price from "../../components/Price";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.query
+  const { query } = context
+  const id = query.id?.toString()
 
-  const responseCategory = await fetch(
-    `${process.env.BACKEND_API}/categories/${id}`
-  );
-  const categoryObject = await responseCategory.json();
-
-  const responseProducts = await fetch(
-    `${process.env.BACKEND_API}/categories/${id}/products`
-  );
-  const productObject = await responseProducts.json();
-
-  const category = {
-    ...categoryObject,
-    products: productObject,
-  };
+  const category = await product_services.find(id)
 
   return { props: { category } };
 };
