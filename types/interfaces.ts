@@ -9,11 +9,11 @@ export interface HomeProps {
   categories: Array<CategoryProps>;
 }
 
-interface ProductProps {
-  id: number;
+export interface ProductProps {
+  id?: number;
   name: string;
-  headline: string;
-  description: string;
+  headline?: string;
+  description?: string;
   slug: string;
   price: number;
   priceWithDiscount: number;

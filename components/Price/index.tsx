@@ -1,4 +1,11 @@
 import NumberFormat from "react-number-format";
+import {
+  ContainerPrice,
+  PriceStyled,
+  PriceDescountStyled,
+  Descount,
+  WithoutDiscount,
+} from "./styles";
 
 interface IBRLFormat {
   value: number;
@@ -22,36 +29,36 @@ const withDiscount = (price: number, priceWithDiscount: number) => {
   const discount = (1 - priceWithDiscount / price) * 100;
 
   return (
-    <>
-      <p>
-        De:
+    <ContainerPrice>
+      <PriceStyled>
         <BRLFormat value={price} />
-      </p>
-      <p>
-        Por:
+      </PriceStyled>
+      <PriceDescountStyled>
         <BRLFormat value={priceWithDiscount} />
-      </p>
-      <p>
-        Desconto:
+      </PriceDescountStyled>
+      <Descount>
         <NumberFormat
           value={discount}
           displayType={"text"}
           suffix={"%"}
           fixedDecimalScale={true}
-          decimalScale={2}
+          decimalScale={0}
           decimalSeparator={","}
           thousandSeparator={"."}
-        />
-      </p>
-    </>
+        />{" "}
+        off
+      </Descount>
+    </ContainerPrice>
   );
 };
 
 const withoutDiscount = (price: number) => {
   return (
-    <p>
-      <BRLFormat value={price} />
-    </p>
+    <ContainerPrice>
+      <WithoutDiscount>
+        <BRLFormat value={price} />
+      </WithoutDiscount>
+    </ContainerPrice>
   );
 };
 
