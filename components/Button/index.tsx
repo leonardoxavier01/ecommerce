@@ -3,7 +3,7 @@ import { ButtonStyled } from "./styles";
 
 type ButtonProps = {
   children: ReactNode;
-  color: string;
+  color?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IProps {
-  color: string;
+  color?: string;
 }
 
 export const ButtonStyled = styled.button<IProps>`
