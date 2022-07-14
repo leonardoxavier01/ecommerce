@@ -9,7 +9,8 @@ export const ButtonStyled = styled.button`
   background-color: #5d2d8c;
   color: white;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   border: none;
+  font-family: "Poppins", sans-serif;
 `;
