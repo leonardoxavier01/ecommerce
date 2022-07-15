@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  width: 1109px;
+  width: 1200px;
   height: 100%;
 `;
 
