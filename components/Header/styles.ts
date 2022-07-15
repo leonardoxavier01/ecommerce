@@ -21,6 +21,7 @@ export const Wrapper = styled.div`
 
 export const BoxImage = styled.div`
   width: 190px;
+  cursor: pointer;
   @media (min-width: 300px) {
     margin-left: 15px;
     width: 110px;
