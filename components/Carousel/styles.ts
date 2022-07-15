@@ -14,10 +14,14 @@ export const Container = styled.div`
   }
 `;
 
-export const WrapperCarousel = styled.div`
+interface IProps {
+  color?: string;
+}
+
+export const WrapperCarousel = styled.div<IProps>`
   padding: 3px 0;
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: ${(props) => props.color};
   border-radius: 10px;
   display: flex;
   overflow: auto;

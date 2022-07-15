@@ -5,9 +5,10 @@ import { ReactNode, useRef } from "react";
 interface ICarouselProps {
   children: ReactNode;
   categoryName?: string;
+  color?: string;
 }
 
-const Carousel = ({ children, categoryName }: ICarouselProps) => {
+const Carousel = ({ children, categoryName, color }: ICarouselProps) => {
   const carousel = useRef<any>(null);
 
   const handleLeftClick = (e: any) => {
@@ -23,7 +24,9 @@ const Carousel = ({ children, categoryName }: ICarouselProps) => {
   return (
     <Container>
       <h1>{categoryName}</h1>
-      <WrapperCarousel ref={carousel}>{children}</WrapperCarousel>
+      <WrapperCarousel color={color} ref={carousel}>
+        {children}
+      </WrapperCarousel>
       <Buttons>
         <button onClick={handleLeftClick}>
           <BsArrowLeftCircleFill size={40} color={"#5d2d8c"} />
