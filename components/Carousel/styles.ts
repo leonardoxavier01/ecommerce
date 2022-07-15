@@ -9,7 +9,6 @@ export const Container = styled.div`
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 26px;
-    text-shadow: 1px 1px 5px #a2a5a6;
     color: #181b1c;
     width: 100%;
   }
