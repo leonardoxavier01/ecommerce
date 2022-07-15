@@ -17,6 +17,9 @@ export const Container = styled.div`
     font-family: "Poppins", sans-serif;
     color: white;
   }
+  @media(max-width: 600px){
+    padding: 28px 15px;
+  }
 `;
 
 export const TextImageButton = styled.div`
