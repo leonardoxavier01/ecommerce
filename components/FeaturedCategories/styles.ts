@@ -25,6 +25,9 @@ export const BoxButtonImage = styled.div<IProps>`
   justify-content: center;
   width: 50%;
   height: 339px;
+  :hover {
+    box-shadow: -1px 7px 15px -6px rgba(0, 0, 0, 0.64);
+  }
   @media (max-width: 600px) {
     width: 100%;
   }

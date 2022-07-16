@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   margin: 0 8px;
-  width: 16.313rem;
-  height: 26.325rem;
+  width: 261px;
+  height: 421px;
   border-radius: 10px;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  :hover {
+    cursor: pointer;
+    box-shadow: -1px 4px 15px -7px rgba(0, 0, 0, 0.64);
+  }
+  @media (max-width: 600px) {
+    min-width: 320px;
+  }
 `;
 export const BoxImage = styled.div`
   display: flex;

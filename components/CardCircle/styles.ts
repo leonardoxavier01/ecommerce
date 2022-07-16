@@ -8,6 +8,10 @@ export const Container = styled.div`
   width: 12.5rem;
   height: 12.5rem;
   border-radius: 50%;
+  :hover {
+    cursor: pointer;
+    box-shadow: -1px 7px 15px -6px rgba(0, 0, 0, 0.64);
+  }
 `;
 
 export const BoxImage = styled.div`

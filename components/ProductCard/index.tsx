@@ -26,7 +26,7 @@ const ProductCard = (props: ProductProps) => {
         <span>{props.name}</span>
       </Text>
       <PriceWrapper>
-        <Price price={100} priceWithDiscount={69} />
+        <Price price={props.price} priceWithDiscount={props.priceWithDiscount} />
       </PriceWrapper>
       <Button onClick={() => navigationByRoute()}>COMPRAR</Button>
     </Container>
