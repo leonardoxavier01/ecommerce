@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: center;
   background-color: #5d2d8c;
+  border-bottom: 2px solid #212121;
   width: 100%;
   min-height: 90px;
   @media (max-width: 900px) {
