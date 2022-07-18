@@ -8,7 +8,7 @@ import Link from "next/link";
 const FeaturedCategories = () => {
   return (
     <Container>
-      <BoxButtonImage color="#18434D">
+      <BoxButtonImage color="linear-gradient(90deg, rgba(93,45,140,1) 0%, rgba(24,67,77,1) 100%)">
         <div>
           <Image src={camisetas} width={421} height={267} alt="camisetas" />
         </div>
@@ -18,7 +18,7 @@ const FeaturedCategories = () => {
           </a>
         </Link>
       </BoxButtonImage>
-      <BoxButtonImage color="#AB91A8">
+      <BoxButtonImage color="linear-gradient(90deg, rgba(171,145,168,1) 0%, rgba(93,45,140,1) 100%)">
         <div>
           <Image src={canecas} width={421} height={267} alt="canecas" />
         </div>

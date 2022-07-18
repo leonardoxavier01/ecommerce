@@ -8,7 +8,11 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #321414;
+  background: linear-gradient(
+    90deg,
+    rgba(93, 45, 140, 1) 0%,
+    rgba(255, 0, 0, 1) 100%
+  );
   min-height: 439px;
   margin-bottom: 1rem;
   h1 {
@@ -17,7 +21,7 @@ export const Container = styled.div`
     font-family: "Poppins", sans-serif;
     color: white;
   }
-  @media(max-width: 600px){
+  @media (max-width: 600px) {
     padding: 28px 15px;
   }
 `;
@@ -38,7 +42,7 @@ export const ImagesWrapper = styled.div`
   justify-content: center;
   width: 372px;
   height: 362px;
-  background-color: white;
+  background-color: rgba(250, 252, 250, 0.30);
   border-radius: 10px;
   @media (max-width: 1150px) {
     margin-top: 15px;

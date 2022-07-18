@@ -18,7 +18,7 @@ interface IProps {
 }
 
 export const BoxButtonImage = styled.div<IProps>`
-  background-color: ${(props) => props.color || "#FFFFFF"};
+  background: ${(props) => props.color || "#FFFFFF"};
   display: flex;
   flex-direction: column;
   align-items: center;
