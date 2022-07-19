@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  padding: 30px 45px;
+  padding: 30px 80px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     rgba(93, 45, 140, 1) 0%,
     rgba(255, 0, 0, 1) 100%
   );
-  min-height: 439px;
+  min-height: 480px;
   margin-bottom: 1rem;
   h1 {
     color: #f1f1f1;
@@ -42,7 +42,7 @@ export const ImagesWrapper = styled.div`
   justify-content: center;
   width: 372px;
   height: 362px;
-  background-color: rgba(250, 252, 250, 0.30);
+  background-color: rgba(250, 252, 250, 0.3);
   border-radius: 10px;
   @media (max-width: 1150px) {
     margin-top: 15px;
