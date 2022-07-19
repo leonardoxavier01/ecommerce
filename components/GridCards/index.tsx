@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import ProductCard from "../ProductCard";
 import { GridWrapper, Container } from "./styles";
 
 interface IGridCardsProps {
@@ -6,13 +7,11 @@ interface IGridCardsProps {
   categoryName: string;
 }
 
-const GridCards = ({children, categoryName}: IGridCardsProps) => {
+const GridCards = ({ children, categoryName }: IGridCardsProps) => {
   return (
     <Container>
       <h1>{categoryName}</h1>
-      <GridWrapper>
-       {children}
-      </GridWrapper>
+      <GridWrapper>{children}</GridWrapper>
     </Container>
   );
 };
