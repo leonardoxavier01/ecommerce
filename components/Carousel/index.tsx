@@ -1,4 +1,9 @@
-import { WrapperCarousel, Container, Buttons } from "./styles";
+import {
+  WrapperCarousel,
+  Container,
+  Button,
+  BoxCarouselButtons,
+} from "./styles";
 import { BsArrowRightCircleFill, BsArrowLeftCircleFill } from "react-icons/bs";
 import { ReactNode, useRef } from "react";
 
@@ -24,17 +29,17 @@ const Carousel = ({ children, categoryName, color }: ICarouselProps) => {
   return (
     <Container>
       <h1>{categoryName}</h1>
-      <WrapperCarousel color={color} ref={carousel}>
-        {children}
-      </WrapperCarousel>
-      <Buttons>
-        <button onClick={handleLeftClick}>
-          <BsArrowLeftCircleFill size={40} color={"#5d2d8c"} />
-        </button>
-        <button onClick={handleRigthClick}>
-          <BsArrowRightCircleFill size={40} color={"#5d2d8c"} />
-        </button>
-      </Buttons>
+      <BoxCarouselButtons>
+        <Button onClick={handleLeftClick}>
+          <BsArrowLeftCircleFill size={50} color={"#5d2d8c"} />
+        </Button>
+        <WrapperCarousel color={color} ref={carousel}>
+          {children}
+        </WrapperCarousel>
+        <Button onClick={handleRigthClick}>
+          <BsArrowRightCircleFill size={50} color={"#5d2d8c"} />
+        </Button>
+      </BoxCarouselButtons>
     </Container>
   );
 };

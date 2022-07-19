@@ -20,7 +20,7 @@ interface IProps {
 }
 
 export const WrapperCarousel = styled.div<IProps>`
-  padding: 3px 0;
+  padding: 7px 0;
   width: 100%;
   background-color: ${(props) => props.color};
   border-radius: 10px;
@@ -32,23 +32,35 @@ export const WrapperCarousel = styled.div<IProps>`
   }
 `;
 
-export const Buttons = styled.div`
+export const BoxCarouselButtons = styled.div`
+  position: relative;
   width: 100%;
-  height: 45px;
+  display: flex;
+`;
+
+export const Button = styled.button`
+  position: absolute;
+  background: white;
+  width: 49px;
+  height: 49px;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  button {
-    background: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
-    cursor: pointer;
+  margin: 1rem;
+  border-radius: 50%;
+  box-shadow: -1px 4px 15px -4px rgba(0, 0, 0, 0.64);
+  cursor: pointer;
+  z-index: 1;
+  &:nth-of-type(1){
+    top: 45%;
+    left: 0;
+    transform: translate(-80%, -50%);
+  }
+  &:nth-of-type(2){
+    top: 45%;
+    right: 0;
+    transform: translate(80%, -50%);
   }
   @media (max-width: 900px) {
     background-color: antiquewhite;
