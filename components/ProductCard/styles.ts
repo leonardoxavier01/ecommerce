@@ -9,9 +9,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: -1px 7px 15px -8px rgba(0, 0, 0, 0.64);
   :hover {
     cursor: pointer;
-    box-shadow: -1px 4px 15px -7px rgba(0, 0, 0, 0.64);
+    box-shadow: -1px 4px 15px -6px rgba(0, 0, 0, 0.64);
   }
   @media (max-width: 600px) {
     min-width: 320px;
