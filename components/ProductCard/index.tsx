@@ -1,22 +1,11 @@
 import { Container, BoxImage, Text, PriceWrapper } from "./styles";
 import { ProductProps } from "../../types/interfaces";
-import { useRouter } from "next/router";
 import img2 from "../../assets/images/machine-gun.png";
 import Image from "next/image";
 import Button from "../Button";
 import Price from "../Price";
 
 const ProductCard = (props: ProductProps) => {
-  const router = useRouter();
-  const navigationByRoute = () => {
-    router.push({
-      pathname: "/products/[slug]",
-      query: {
-        slug: props.slug,
-      },
-    });
-  };
-
   return (
     <Container>
       <BoxImage>
@@ -26,9 +15,12 @@ const ProductCard = (props: ProductProps) => {
         <span>{props.name}</span>
       </Text>
       <PriceWrapper>
-        <Price price={props.price} priceWithDiscount={props.priceWithDiscount} />
+        <Price
+          price={props.price}
+          priceWithDiscount={props.priceWithDiscount}
+        />
       </PriceWrapper>
-      <Button onClick={() => navigationByRoute()}>COMPRAR</Button>
+      <Button>COMPRAR</Button>
     </Container>
   );
 };
