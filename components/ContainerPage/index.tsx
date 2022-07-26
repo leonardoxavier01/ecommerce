@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Container, WrapperPage } from "./styles";
 
 interface IContainerPageProps {
-  children: JSX.Element | JSX.Element[] | string | string[];
+  children: JSX.Element | JSX.Element[] | string | string[] | ReactNode;
 }
 
 const ContainerPage = ({ children }: IContainerPageProps) => {
