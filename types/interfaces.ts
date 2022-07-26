@@ -17,6 +17,7 @@ export interface ProductProps {
   slug: string;
   price: number;
   priceWithDiscount: number;
+  categoryId?: string;
 }
 
 export interface ProductPageProps {
