@@ -38,6 +38,8 @@ const Login = () => {
       localStorage.setItem("token", token);
 
       Router.reload();
+    } else {
+      alert("Email ou senha incorreta");
     }
   };
 
