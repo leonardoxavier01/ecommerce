@@ -18,6 +18,7 @@ export interface ProductProps {
   price: number;
   priceWithDiscount: number;
   categoryId?: string;
+  image?:string
 }
 
 export interface ProductPageProps {
