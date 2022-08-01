@@ -34,9 +34,4 @@ export const StyledForm = styled.form`
     border: transparent;
     color: white;
   }
-
-  div {
-    box-shadow: -5px 5px 15px -10px rgba(0, 0, 0, 0.64);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
 `;

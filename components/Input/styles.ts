@@ -8,7 +8,9 @@ export const ContainerInput = styled.div`
   justify-content: center;
   width: 22rem;
   height: 2.7rem;
-  margin: 0.6rem;
+  margin: 0.6rem 0;
+  box-shadow: -5px 5px 15px -10px rgba(0, 0, 0, 0.64);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   input {
     width: 90%;
     height: 2rem;
