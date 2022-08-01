@@ -73,34 +73,19 @@ export const WrapperCategory = styled.div`
   }
 `;
 
-export const ContainerModal = styled.div`
+export const BoxButton = styled.div`
+  height: 6rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 25%;
-  right: 25%;
-  left: 25%;
-`;
-export const StyledModal = styled.div`
-  background-color: white;
-  border-radius: 1rem;
-  width: 30rem;
-  padding: 1rem;
-  overflow: hidden;
-  box-shadow: -1px 7px 15px -8px rgba(0, 0, 0, 0.64);
-  border: 1px solid rgba(0, 0, 0, 0.3);
   button {
-    &:nth-of-type(1) {
-      background: transparent;
-      border: 1px solid red;
-      color: #181b1c;
-    }
+    margin-top: 0.5rem;
   }
 `;
 
-export const ButtonDelete = styled.button`
-  background: red;
+export const Button = styled.button`
+  background: ${(props) => props.color};
   border: transparent;
   color: white;
   min-width: 7.1rem;
