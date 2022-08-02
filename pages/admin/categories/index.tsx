@@ -16,6 +16,7 @@ import Logout from "../../../components/Logout";
 import Input from "../../../components/Input";
 import Link from "next/link";
 import Modal from "../../../components/Modal";
+import Router from "next/router";
 
 interface modal {
   categoryId: string;
@@ -41,7 +42,7 @@ const ButtonModalDel = (props: modal) => {
     );
     if (response.ok) {
       alert("Categoria excluída");
-      console.log(response);
+      Router.reload();
     } else {
       alert("Houve um erro");
     }
@@ -71,7 +72,7 @@ const ButtonModalDel = (props: modal) => {
 };
 
 const ButtonModalPut = (props: modal) => {
-  const [putCategory, setPutCategory] = useState<string>("");
+  const [putCategory, setPutCategory] = useState<string>(props.categoryName);
   const [isPut, setIsPut] = useState<boolean>(false);
 
   const editCategory = async (categoryId: string) => {
@@ -94,10 +95,9 @@ const ButtonModalPut = (props: modal) => {
     if (response.ok) {
       alert("Categoria alterada");
       setIsPut(false);
-      setPutCategory("");
+      Router.reload();
     } else {
       alert("Houve um erro");
-      setPutCategory("");
     }
   };
 
@@ -129,21 +129,25 @@ const ButtonModalPut = (props: modal) => {
 };
 
 const Categories: NextPage = () => {
-  const [addCategory, setAddCategory] = useState<string>("");
-  const [category, setCategory] = useState<CategoryProps[]>([]);
+  const [newCategory, setNewCategory] = useState<string>("");
+  const [categories, setCategories] = useState<CategoryProps[]>([]);
+
+  const getCategories = async () => {
+    const response = await fetch("http://localhost:5000/categories");
+    const data = await response.json();
+    setCategories(data);
+  };
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
-      .then((resp) => resp.json())
-      .then((data) => setCategory(data));
-  }, [category]);
+    getCategories();
+  }, []);
 
   const submitCategory = async () => {
     const token = localStorage.getItem("token");
     const response = await fetch(`http://localhost:5000/admin/categories`, {
       method: "POST",
       body: JSON.stringify({
-        name: addCategory,
+        name: newCategory,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -153,10 +157,12 @@ const Categories: NextPage = () => {
     });
     if (response.ok) {
       alert("Categoria criada");
-      setAddCategory("");
+      setNewCategory("");
+      const { category } = await response.json();
+      setCategories([...categories, category]);
     } else {
       alert("Houve um erro");
-      setAddCategory("");
+      setNewCategory("");
     }
   };
 
@@ -168,16 +174,17 @@ const Categories: NextPage = () => {
           <Input
             placeholder="Criar nova categoria"
             type="text"
-            value={addCategory}
-            onChange={(e: any) => setAddCategory(e.target.value)}
+            value={newCategory}
+            onChange={(e: any) => setNewCategory(e.target.value)}
           />
           <button onClick={submitCategory}>
-            <IoMdAddCircle size={40}></IoMdAddCircle>
+            \
+            <IoMdAddCircle size={40} />
           </button>
         </ContainerInput>
       </ContainerInputLogout>
       <TitleCategories>Categorias cadastradas:</TitleCategories>
-      {category.map((category) => (
+      {categories.map((category) => (
         <ContainerCategory key={category.id}>
           <WrapperCategory>
             <p>{category.name}</p>

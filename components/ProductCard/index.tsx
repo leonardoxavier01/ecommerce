@@ -12,7 +12,7 @@ const ProductCard = (props: ProductProps) => {
         <Image width={240} height={240} src={img2} alt="img mandalorian" />
       </BoxImage>
       <Text>
-        <span>{props.name}</span>
+        <span>{props.name} - {props.headline}</span>
       </Text>
       <PriceWrapper>
         <Price
