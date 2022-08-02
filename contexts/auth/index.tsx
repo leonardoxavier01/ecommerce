@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import ContainerPage from "../../components/ContainerPage";
 import Input from "../../components/Input";
-import { ContainerLogin, StyledForm } from "./styles";
+import { ContainerLogin, StyledForm } from "../../styles/pages/Auth";
 
 interface IAdminAuthProvider {
   children: React.ReactNode;
