@@ -1,13 +1,21 @@
 import type { GetServerSideProps, NextPage } from "next";
 import { ProductPageProps } from "../../types/interfaces";
 import Price from "../../components/Price";
+import ContainerPage from "../../components/ContainerPage";
+import Button from "../../components/Button";
+import CarouselProducts from "../../components/CarouselProducts";
+import {
+  BoxImageProduct,
+  Description,
+  Details,
+  ProductDetails,
+  WrapperProduct,
+} from "../../styles/pages/Product";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.query
+  const { slug } = context.query;
 
-  const responseProduct = await fetch(
-    `${process.env.BACKEND_API}/products/${slug}`
-  );
+  const responseProduct = await fetch(`http://localhost:5000/products/${slug}`);
 
   const productObject = await responseProduct.json();
 
@@ -22,15 +30,32 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <h2>{product.headline}</h2>
-      <p>{product.description}</p>
-      <Price
-        price={product.price}
-        priceWithDiscount={product.priceWithDiscount}
+    <ContainerPage>
+      <WrapperProduct>
+        <ProductDetails>
+          <BoxImageProduct>
+            <img
+              src={`http://localhost:5000/images/${product.image}`}
+              alt={`imagem do produto ${product.name}`}
+            />
+          </BoxImageProduct>
+          <Details>
+            <h1>{product.name}</h1>
+            <h2>{product.headline}</h2>
+            <Price
+              price={product.price}
+              priceWithDiscount={product.priceWithDiscount}
+            />
+            <Button>COMPRAR</Button>
+          </Details>
+        </ProductDetails>
+        <Description>{product.description}</Description>
+      </WrapperProduct>
+      <CarouselProducts
+        categoryName="Funkos da mesma categoria"
+        categoryId={product.categoryId}
       />
-    </div>
+    </ContainerPage>
   );
 };
 
