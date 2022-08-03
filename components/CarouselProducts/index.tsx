@@ -24,7 +24,7 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
         <div key={product.id}>
           <Link
             href={{
-              pathname: "/productsTest/[slug]",
+              pathname: "/products/[slug]",
               query: { slug: product.slug },
             }}
           >
