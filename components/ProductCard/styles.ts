@@ -18,6 +18,7 @@ export const Container = styled.div`
     min-width: 320px;
   }
 `;
+
 export const BoxImage = styled.div`
   display: flex;
   align-items: center;
@@ -25,7 +26,13 @@ export const BoxImage = styled.div`
   width: 16.313rem;
   height: 15rem;
   margin-bottom: 10px;
+
+  img{
+    width: 240px;
+    height: 240px;
+  }
 `;
+
 export const Text = styled.div`
   display: flex;
   flex-direction: row;
