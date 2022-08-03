@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NextPage } from "next";
 import { CategoryProps } from "../../../types/interfaces";
 import { AdminAuthProvider } from "../../../contexts/auth";
@@ -10,42 +10,34 @@ import {
   Button,
   ContainerInput,
   TitleCategories,
-} from "../../../styles/pages/admin/categories";
+} from "../../../styles/pages/AdminCategories";
 import { IoMdAddCircle } from "react-icons/io";
 import Logout from "../../../components/Logout";
 import Input from "../../../components/Input";
 import Link from "next/link";
 import Modal from "../../../components/Modal";
 import Router from "next/router";
+import {
+  CategoriesContext,
+  CategoriesContextProvider,
+} from "../../../contexts/CategoriesContext";
 
-interface modal {
+interface IModal {
   categoryId: string;
   categoryName: string;
 }
 
-const ButtonModalDel = (props: modal) => {
+const ButtonModalDel: React.FC<IModal> = ({
+  categoryId,
+  categoryName,
+}: IModal) => {
   const [isDelete, setIsDelete] = useState<boolean>(false);
 
-  const deleteCategory = async (categoryId: string) => {
-    const token = localStorage.getItem("token");
+  const { deleteCategory } = useContext(CategoriesContext);
 
-    const response = await fetch(
-      `http://localhost:5000/admin/categories/${categoryId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    if (response.ok) {
-      alert("Categoria excluída");
-      Router.reload();
-    } else {
-      alert("Houve um erro");
-    }
+  const handleDeleteCategoy = () => {
+    deleteCategory(categoryId);
+    setIsDelete(false);
   };
 
   return (
@@ -55,10 +47,10 @@ const ButtonModalDel = (props: modal) => {
           <p>Todos os produtos desta categoria também serão deletados!</p>
           <p>
             Tem certeza de que deseja excluir a categoria
-            <strong> {props.categoryName}</strong> permanentemente?
+            <strong> {categoryName}</strong> permanentemente?
           </p>
           <Button onClick={() => setIsDelete(false)}>Cancelar</Button>
-          <Button color="red" onClick={() => deleteCategory(props.categoryId)}>
+          <Button color="red" onClick={handleDeleteCategoy}>
             Deletar
           </Button>
         </Modal>
@@ -71,34 +63,15 @@ const ButtonModalDel = (props: modal) => {
   );
 };
 
-const ButtonModalPut = (props: modal) => {
-  const [putCategory, setPutCategory] = useState<string>(props.categoryName);
+const ButtonModalPut: React.FC<IModal> = ({ categoryId }: IModal) => {
   const [isPut, setIsPut] = useState<boolean>(false);
 
-  const editCategory = async (categoryId: string) => {
-    const token = localStorage.getItem("token");
+  const { updateCategory, setUpdateCategory, putCategory } =
+    useContext(CategoriesContext);
 
-    const response = await fetch(
-      `http://localhost:5000/admin/categories/${categoryId}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          name: putCategory,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    if (response.ok) {
-      alert("Categoria alterada");
-      setIsPut(false);
-      Router.reload();
-    } else {
-      alert("Houve um erro");
-    }
+  const handlePutCategory = () => {
+    putCategory(categoryId);
+    setIsPut(false);
   };
 
   return (
@@ -108,14 +81,11 @@ const ButtonModalPut = (props: modal) => {
           <p>Digite o novo nome desta categoria:</p>
           <Input
             type="text"
-            value={putCategory}
-            onChange={(e: any) => setPutCategory(e.target.value)}
+            value={updateCategory}
+            onChange={(e: any) => setUpdateCategory(e.target.value)}
           />
           <Button onClick={() => setIsPut(false)}>Cancelar</Button>
-          <Button
-            color="#2cdb46"
-            onClick={() => editCategory(props.categoryId)}
-          >
+          <Button color="#2cdb46" onClick={handlePutCategory}>
             Alterar
           </Button>
         </Modal>
@@ -128,63 +98,34 @@ const ButtonModalPut = (props: modal) => {
   );
 };
 
-const Categories: NextPage = () => {
-  const [newCategory, setNewCategory] = useState<string>("");
-  const [categories, setCategories] = useState<CategoryProps[]>([]);
-
-  const getCategories = async () => {
-    const response = await fetch("http://localhost:5000/categories");
-    const data = await response.json();
-    setCategories(data);
-  };
-
-  useEffect(() => {
-    getCategories();
-  }, []);
-
-  const submitCategory = async () => {
-    const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5000/admin/categories`, {
-      method: "POST",
-      body: JSON.stringify({
-        name: newCategory,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (response.ok) {
-      alert("Categoria criada");
-      setNewCategory("");
-      const { category } = await response.json();
-      setCategories([...categories, category]);
-    } else {
-      alert("Houve um erro");
-      setNewCategory("");
-    }
-  };
+const RegisterCategory: React.FC = () => {
+  const { newCategory, setNewCategory, submitCategory } =
+    useContext(CategoriesContext);
 
   return (
-    <AdminAuthProvider>
-      <ContainerInputLogout>
-        <Logout />
-        <ContainerInput>
-          <Input
-            placeholder="Criar nova categoria"
-            type="text"
-            value={newCategory}
-            onChange={(e: any) => setNewCategory(e.target.value)}
-          />
-          <button onClick={submitCategory}>
-            \
-            <IoMdAddCircle size={40} />
-          </button>
-        </ContainerInput>
-      </ContainerInputLogout>
-      <TitleCategories>Categorias cadastradas:</TitleCategories>
-      {categories.map((category) => (
+    <ContainerInputLogout>
+      <Logout />
+      <ContainerInput>
+        <Input
+          placeholder="Criar nova categoria"
+          type="text"
+          value={newCategory}
+          onChange={(e: any) => setNewCategory(e.target.value)}
+        />
+        <button onClick={submitCategory}>
+          <IoMdAddCircle size={40} />
+        </button>
+      </ContainerInput>
+    </ContainerInputLogout>
+  );
+};
+
+const CategoriesRegistered: React.FC = () => {
+  const { categories } = useContext(CategoriesContext);
+
+  return (
+    <>
+      {categories.map((category: CategoryProps) => (
         <ContainerCategory key={category.id}>
           <WrapperCategory>
             <p>{category.name}</p>
@@ -211,6 +152,18 @@ const Categories: NextPage = () => {
           </BoxButton>
         </ContainerCategory>
       ))}
+    </>
+  );
+};
+
+const Categories: NextPage = () => {
+  return (
+    <AdminAuthProvider>
+      <CategoriesContextProvider>
+        <RegisterCategory />
+        <TitleCategories>Categorias cadastradas:</TitleCategories>
+        <CategoriesRegistered />
+      </CategoriesContextProvider>
     </AdminAuthProvider>
   );
 };
