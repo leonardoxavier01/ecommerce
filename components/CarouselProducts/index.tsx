@@ -32,6 +32,7 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
               <ProductCard
                 slug={product.slug}
                 name={product.name}
+                headline={product.headline}
                 image={
                   product.image
                     ? `http://localhost:5000/images/${product.image}`
