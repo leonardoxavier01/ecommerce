@@ -5,11 +5,12 @@ type ButtonProps = {
   children: ReactNode;
   color?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  width?: string
 };
 
 const Button = (props: ButtonProps) => {
   return (
-    <ButtonStyled color={props.color} onClick={props.onClick}>
+    <ButtonStyled width={props.width} color={props.color} onClick={props.onClick}>
       {props.children}
     </ButtonStyled>
   );

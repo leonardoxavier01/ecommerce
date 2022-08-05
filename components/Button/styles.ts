@@ -2,15 +2,19 @@ import styled from "styled-components";
 
 interface IProps {
   color?: string;
+  width?: string;
 }
 
 export const ButtonStyled = styled.button<IProps>`
-  width: 226px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 43px;
   border-radius: 10px;
   padding: 5px;
   text-align: center;
   background-color: ${(props) => props.color || "#5d2d8c"};
+  width: ${(props) => props.width || "226px"};
   color: white;
   font-size: 16px;
   font-weight: 700;
