@@ -1,18 +1,9 @@
-import { AdminAuthProvider } from "../../../../contexts/auth";
-import { GetServerSideProps, NextPage } from "next";
-import { ParsedUrlQuery } from "querystring";
-import { ChangeEventHandler } from "react";
-import Logout from "../../../../components/Logout";
+import React, { ChangeEventHandler } from "react";
+import { ContainerInputFile } from "./styles";
 
-interface IParams extends ParsedUrlQuery {
-  id: string;
+interface IParamsProps {
+  id: string | number | undefined;
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params as IParams;
-
-  return { props: { id } };
-};
 
 const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
   element
@@ -76,16 +67,17 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
   }
 };
 
-const Upload: NextPage<IParams> = ({ id }) => {
+const Upload: React.FC<IParamsProps> = ({ id }) => {
   return (
-    <AdminAuthProvider>
-      <form>
-        <input type="file" onChange={inputFileChanged} data-id={id} />
-      </form>
-      <p>
-        <Logout />
-      </p>
-    </AdminAuthProvider>
+    <ContainerInputFile>
+      <label htmlFor="uploadFile">Enviar imagem</label>
+      <input
+        type="file"
+        onChange={inputFileChanged}
+        data-id={id}
+        id="uploadFile"
+      />
+    </ContainerInputFile>
   );
 };
 
