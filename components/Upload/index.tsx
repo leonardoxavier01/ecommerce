@@ -59,6 +59,7 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
 
     if (response.ok) {
       alert("update concluido");
+      console.log(response);
     } else {
       alert("update falhou");
     }
@@ -70,12 +71,12 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
 const Upload: React.FC<IParamsProps> = ({ id }) => {
   return (
     <ContainerInputFile>
-      <label htmlFor="uploadFile">Enviar imagem</label>
+      <label htmlFor={`uploadImage${id}`}>Enviar imagem</label>
       <input
         type="file"
         onChange={inputFileChanged}
         data-id={id}
-        id="uploadFile"
+        id={`uploadImage${id}`}
       />
     </ContainerInputFile>
   );
