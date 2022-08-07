@@ -5,9 +5,10 @@ export const ContainerModal = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 25%;
+  top: 2%;
   right: 25%;
   left: 25%;
+  z-index: 1;
 `;
 export const StyledModal = styled.div`
   background-color: white;
