@@ -36,11 +36,11 @@ export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
       <Html>
-        <Head></Head>
-
+        <Head>
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        </Head>
         <body>
           <Main />
-
           <NextScript />
         </body>
       </Html>

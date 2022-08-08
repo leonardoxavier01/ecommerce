@@ -5,6 +5,7 @@ import Link from "next/link";
 import GridCards from "../../components/GridCards";
 import ProductCard from "../../components/ProductCard";
 import ContainerPage from "../../components/ContainerPage";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
@@ -19,6 +20,9 @@ const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
   console.log(category.name);
   return (
     <ContainerPage>
+      <Head>
+        <title>Categoria {category.name} - Funko Store</title>
+      </Head>
       <GridCards categoryName={category.name}>
         {category.products.map((product: ProductProps) => (
           <div key={product.id}>

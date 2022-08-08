@@ -11,6 +11,7 @@ import {
   ProductDetails,
   WrapperProduct,
 } from "../../styles/pages/Product";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query;
@@ -31,6 +32,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
   return (
     <ContainerPage>
+      <Head>
+        <title>{product.name} - Funko Store</title>
+      </Head>
       <WrapperProduct>
         <ProductDetails>
           <BoxImageProduct>

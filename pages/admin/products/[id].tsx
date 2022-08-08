@@ -7,10 +7,14 @@ import {
 import ProductsContextProvider from "../../../contexts/ProductsContext";
 import ProductsRegistered from "../../../components/ProductsRegistered";
 import RegisterProduct from "../../../components/RegisterProduct";
+import Head from "next/head";
 
 const ProductsPage: NextPage = () => {
   return (
     <AdminAuthProvider>
+      <Head>
+        <title>Gerenciar produtos</title>
+      </Head>
       <ProductsContextProvider>
         <TitleProductsPage>Productos cadastrados:</TitleProductsPage>
         <ContentCategory>
