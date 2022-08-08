@@ -2,7 +2,7 @@ import { Container, BoxImage } from "./styles";
 import Image, { StaticImageData } from "next/image";
 
 interface ICardCircle {
-  image: StaticImageData | string;
+  image: StaticImageData | string | any;
   categoryName: string;
 }
 
