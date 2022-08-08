@@ -8,7 +8,7 @@ import peggyCarter from "../../assets/images/stellar-vortex.png";
 import Link from "next/link";
 
 const Outdoor = () => {
-  const endpointCategoryOutdoor: string = "cl5odikhr00500mutjzhzqg2u";
+  const endpointCategoryIdOutdoor: string = "cl6kx9riz0148cswxv8n0x7g5";
 
   const imagesArray = [spiderMan, peggyCarter];
 
@@ -36,7 +36,7 @@ const Outdoor = () => {
       <TextImageButton>
         <Image src={marvel} width={184} height={71} alt="marvel logo" />
         <h1>CONHEÇA A NOVA COLEÇÃO DE FUNKOS DA MARVEL</h1>
-        <Link href={`/categories/${endpointCategoryOutdoor}`} passHref>
+        <Link href={`/categories/${endpointCategoryIdOutdoor}`} passHref>
           <a>
             <Button color="#EE171F">COLEÇÃO MARVEL</Button>
           </a>
