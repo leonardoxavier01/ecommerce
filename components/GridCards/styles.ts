@@ -5,7 +5,6 @@ export const Container = styled.div`
   h1 {
     margin-top: 10px;
     margin-left: 11px;
-    font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 25px;
     color: #181b1c;

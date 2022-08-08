@@ -53,7 +53,6 @@ export const Details = styled.div`
   }
 
   h1 {
-    font-family: "Poppins", sans-serif;
     overflow: hidden;
     font-weight: 700;
     font-size: 35px;
@@ -65,7 +64,6 @@ export const Details = styled.div`
   }
 
   h2 {
-    font-family: "Poppins", sans-serif;
     font-size: 20px;
     font-weight: 500;
   }
@@ -81,7 +79,6 @@ export const Description = styled.p`
   padding: 5px 20px;
   text-align: start;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: #181b1c;
 `;

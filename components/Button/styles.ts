@@ -20,5 +20,4 @@ export const ButtonStyled = styled.button<IProps>`
   font-weight: 700;
   cursor: pointer;
   border: none;
-  font-family: "Poppins", sans-serif;
 `;

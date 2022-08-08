@@ -42,7 +42,6 @@ export const Text = styled.div`
   margin-bottom: 5px;
   overflow: hidden;
   span {
-    font-family: "Poppins", sans-serif;
     text-align: start;
     font-size: 16px;
     font-weight: 600;

@@ -7,7 +7,6 @@ export const Container = styled.div`
   align-items: center;
   h1 {
     margin-left: 15px;
-    font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-size: 26px;
     color: #181b1c;

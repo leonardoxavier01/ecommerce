@@ -18,7 +18,6 @@ export const Container = styled.div`
   h1 {
     color: #f1f1f1;
     font-size: 36px;
-    font-family: "Poppins", sans-serif;
     color: white;
   }
   @media (max-width: 600px) {
