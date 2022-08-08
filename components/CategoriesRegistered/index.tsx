@@ -9,7 +9,14 @@ const CategoriesRegistered: React.FC = () => {
   const { categories } = useContext(CategoriesContext);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column-reverse",
+        alignItems: "center",
+        width: "100%",
+      }}
+    >
       {categories.map((category) => (
         <ContainerCategory key={category.id}>
           <WrapperCategory>
@@ -37,7 +44,7 @@ const CategoriesRegistered: React.FC = () => {
           </BoxButton>
         </ContainerCategory>
       ))}
-    </>
+    </div>
   );
 };
 

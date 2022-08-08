@@ -29,7 +29,7 @@ export const BoxImageProduct = styled.div`
   border-radius: 30px;
 
   img {
-    width: 100%;
+    width: 70%;
     border-radius: 30px;
   }
 
