@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 import ButtonActionModal from "../ButtonActionModal";
 import ButtonOpenModal from "../ButtonOpenModal";
@@ -21,6 +21,7 @@ const CategoryModalDel: React.FC<IModalProps> = ({
     deleteCategory(categoryId);
     setIsDelete(false);
   };
+
 
   return (
     <>
@@ -58,4 +59,4 @@ const CategoryModalDel: React.FC<IModalProps> = ({
   );
 };
 
-export default CategoryModalDel;
+export default memo(CategoryModalDel);

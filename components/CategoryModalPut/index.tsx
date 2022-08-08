@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 import ButtonActionModal from "../ButtonActionModal";
 import ButtonOpenModal from "../ButtonOpenModal";
@@ -57,4 +57,4 @@ const CategoryModalPut: React.FC<IModalProps> = ({ categoryId }) => {
   );
 };
 
-export default CategoryModalPut;
+export default memo(CategoryModalPut);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { ButtonStyled } from "./styles";
 
 interface IButtonModalProps {
@@ -20,4 +20,4 @@ const ButtonOpenModal = (props: IButtonModalProps) => {
   );
 };
 
-export default ButtonOpenModal;
+export default memo(ButtonOpenModal);
