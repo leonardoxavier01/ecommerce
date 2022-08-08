@@ -17,7 +17,7 @@ const CategoriesRegistered: React.FC = () => {
             <span>Id: {category.id}</span>
             <Link
               href={{
-                pathname: "/admin/categories/[id]",
+                pathname: "/admin/products/[id]",
                 query: { id: category.id },
               }}
               passHref
