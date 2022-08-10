@@ -19,7 +19,7 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
   const file = target.files.item(0);
 
   const signedUrl = await fetch(
-    "http://localhost:5000/admin/products/upload/sign-url",
+    "https://quiet-anchorage-15734.herokuapp.com/admin/products/upload/sign-url",
     {
       method: "POST",
       headers: {
@@ -43,7 +43,7 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
 
   if (upload.ok) {
     const response = await fetch(
-      `http://localhost:5000/admin/products/${productId}`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
       {
         method: "PUT",
         body: JSON.stringify({

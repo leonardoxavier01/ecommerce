@@ -13,7 +13,7 @@ export default createGlobalStyle`
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Roboto", sans-serif; 
   background-color: #F1F1F1; 
 }
 

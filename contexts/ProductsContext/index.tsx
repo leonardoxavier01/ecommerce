@@ -49,7 +49,7 @@ export default function ProductsContextProvider({
   useEffect(() => {
     const getProducts = async () => {
       const response = await fetch(
-        `http://localhost:5000/categories/${categoryId}/products`
+        `https://quiet-anchorage-15734.herokuapp.com/categories/${categoryId}/products`
       );
       const data = await response.json();
       setProducts(data);
@@ -77,7 +77,7 @@ export default function ProductsContextProvider({
     };
 
     const response = await fetch(
-      `http://localhost:5000/admin/categories/${categoryId}/products`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}/products`,
       {
         method: "POST",
         body: JSON.stringify(product),
@@ -104,7 +104,7 @@ export default function ProductsContextProvider({
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/admin/products/${productId}`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
       {
         method: "PUT",
         body: JSON.stringify({ ...form }),
@@ -139,7 +139,7 @@ export default function ProductsContextProvider({
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/admin/products/${productId}`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
       {
         method: "DELETE",
         headers: {

@@ -27,7 +27,7 @@ const ProductsRegistered = () => {
                 <img
                   src={
                     product.image
-                      ? `http://localhost:5000/images/${product.image}?w=100&h=100&c=true`
+                      ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}?w=100&h=100&c=true`
                       : ""
                   }
                   alt={`imagem do produto ${product.name}`}

@@ -35,7 +35,7 @@ const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
               <a>
                 <ProductCard
                   name={product.name}
-                  image={`http://localhost:5000/images/${product.image}`}
+                  image={`https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`}
                   price={product.price}
                   priceWithDiscount={product.priceWithDiscount}
                   slug={product.slug}

@@ -16,7 +16,7 @@ import Head from "next/head";
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query;
 
-  const responseProduct = await fetch(`http://localhost:5000/products/${slug}`);
+  const responseProduct = await fetch(`https://quiet-anchorage-15734.herokuapp.com/products/${slug}`);
 
   const productObject = await responseProduct.json();
 
@@ -39,7 +39,7 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
         <ProductDetails>
           <BoxImageProduct>
             <img
-              src={`http://localhost:5000/images/${product.image}`}
+              src={`https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`}
               alt={`imagem do produto ${product.name}`}
             />
           </BoxImageProduct>

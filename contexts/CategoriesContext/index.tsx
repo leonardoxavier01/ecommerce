@@ -40,7 +40,7 @@ export function CategoriesContextProvider({
   const [updateCategory, setUpdateCategory] = useState<string>("");
 
   const getCategories = async () => {
-    const response = await fetch("http://localhost:5000/categories");
+    const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/categories");
     const data = await response.json();
     setCategories(data);
   };
@@ -51,7 +51,7 @@ export function CategoriesContextProvider({
 
   const submitCategory = async () => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`http://localhost:5000/admin/categories`, {
+    const response = await fetch(`https://quiet-anchorage-15734.herokuapp.com/admin/categories`, {
       method: "POST",
       body: JSON.stringify({
         name: newCategory,
@@ -80,7 +80,7 @@ export function CategoriesContextProvider({
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/admin/categories/${categoryId}`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -115,7 +115,7 @@ export function CategoriesContextProvider({
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      `http://localhost:5000/admin/categories/${categoryId}`,
+      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}`,
       {
         method: "DELETE",
         headers: {

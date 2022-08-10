@@ -20,7 +20,7 @@ const Login = () => {
     console.log(email);
     console.log(password);
 
-    const response = await fetch("http://localhost:5000/admin/auth", {
+    const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const AdminAuthProvider = ({ children }: IAdminAuthProvider) => {
       const token = localStorage.getItem("token");
 
       if (token) {
-        const response = await fetch("http://localhost:5000/admin/me", {
+        const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/me", {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",

@@ -13,7 +13,7 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories/${categoryId}/products`)
+    fetch(`https://quiet-anchorage-15734.herokuapp.com/categories/${categoryId}/products`)
       .then((resp) => resp.json())
       .then(setProducts);
   }, [categoryId]);
@@ -35,7 +35,7 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
                 headline={product.headline}
                 image={
                   product.image
-                    ? `http://localhost:5000/images/${product.image}`
+                    ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`
                     : ""
                 }
                 price={product.price}
