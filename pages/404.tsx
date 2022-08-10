@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Funko from "../assets/images/machine-gun.png";
 import Button from "../components/Button";
-import { BoxButton } from "../styles/pages/AdminCategories";
 import {
+  BoxButton,
   BoxImage,
   ContainerNotFound,
   TextContent,
