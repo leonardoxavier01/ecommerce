@@ -22,7 +22,7 @@ const Login = () => {
 
     const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/auth", {
       method: "POST",
-      mode:'cors',
+      mode:'no-cors',
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -75,7 +75,7 @@ export const AdminAuthProvider = ({ children }: IAdminAuthProvider) => {
 
       if (token) {
         const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/me", {
-          mode:'cors',
+          mode:'no-cors',
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
