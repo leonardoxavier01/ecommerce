@@ -28,8 +28,8 @@ export const BoxImage = styled.div`
   margin-bottom: 10px;
 
   img{
-    width: 240px;
-    height: 240px;
+    max-width: 240px;
+    max-height: 14rem;
   }
 `;
 
