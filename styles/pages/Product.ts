@@ -24,17 +24,21 @@ export const BoxImageProduct = styled.div`
   align-items: center;
   justify-content: center;
   background-color: white;
-  width: 50%;
+  width: 35rem;
+  height: 30rem;
   margin: 25px;
-  border-radius: 30px;
+  border-radius: 10px;
+  padding: 10px;
 
   img {
-    width: 70%;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 30px;
   }
 
   @media (max-width: 700px) {
     width: 90%;
+    height: 20rem;
   }
 `;
 
