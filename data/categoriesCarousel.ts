@@ -17,7 +17,7 @@ interface ICategoriesCarousel {
 
 const categoriesCarousel: ICategoriesCarousel[] = [
   {
-    id: "cl6kx9riz0148cswxv8n0x7g5",
+    id: "cl6o8d83a00310m1tam3vqrb2",
     name: "Marvel",
     image: marvel,
   },

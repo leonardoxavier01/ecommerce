@@ -13,7 +13,7 @@ import Head from "next/head";
 import categoriesCarousel from "../data/categoriesCarousel";
 
 export const getServerSideProps = async (_context: NextPageContext) => {
-  const response = await fetch(`https://quiet-anchorage-15734.herokuapp.com/categories/`);
+  const response = await fetch(`https://quiet-anchorage-15734.herokuapp.com/categories`);
   const categories = await response.json();
 
   return { props: { categories } };

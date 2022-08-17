@@ -56,7 +56,7 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
         <Description>{product.description}</Description>
       </WrapperProduct>
       <CarouselProducts
-        categoryName="Funkos da mesma categoria"
+        categoryName="Produtos da mesma categoria"
         categoryId={product.categoryId}
       />
     </ContainerPage>

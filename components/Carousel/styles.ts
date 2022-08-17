@@ -5,13 +5,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    margin-left: 15px;
-    font-weight: 700;
-    font-size: 26px;
-    color: #181b1c;
-    width: 100%;
-  }
 `;
 
 interface IProps {

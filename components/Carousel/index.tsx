@@ -13,7 +13,7 @@ interface ICarouselProps {
   color?: string;
 }
 
-const Carousel = ({ children, categoryName, color }: ICarouselProps) => {
+const Carousel = ({ children, color }: ICarouselProps) => {
   const carousel = useRef<any>(null);
 
   const handleLeftClick = (e: any) => {
@@ -28,7 +28,6 @@ const Carousel = ({ children, categoryName, color }: ICarouselProps) => {
 
   return (
     <Container>
-      <h1>{categoryName}</h1>
       <BoxCarouselButtons>
         <Button onClick={handleLeftClick}>
           <BsArrowLeftCircleFill size={50} color={"#5d2d8c"} />
