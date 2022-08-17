@@ -10,7 +10,7 @@ interface IParamsProps {
 }
 
 const ProductUpdate: React.FC<IParamsProps> = ({ productId }: any) => {
-  const { submitUpdateProduct, renderForm, products } =
+  const { submitUpdateProduct, renderFormUpdate, products } =
     useContext(ProductsContext);
 
   const indexProduct = products.findIndex((objct) => {
@@ -26,31 +26,31 @@ const ProductUpdate: React.FC<IParamsProps> = ({ productId }: any) => {
       <Input
         type="text"
         defaultValue={preDefinedObject.name}
-        onChange={(e: any) => renderForm("name", e.target.value)}
+        onChange={(e: any) => renderFormUpdate("name", e.target.value)}
       />
       <label>Preço sem desconto:</label>
       <Input
         type="number"
         defaultValue={preDefinedObject.price}
-        onChange={(e: any) => renderForm("price", Number(e.target.value))}
+        onChange={(e: any) => renderFormUpdate("price", Number(e.target.value))}
       />
       <label>Preço com desconto:</label>
       <Input
         type="number"
         defaultValue={preDefinedObject.priceWithDiscount}
         onChange={(e: any) =>
-          renderForm("priceWithDiscount", Number(e.target.value))
+          renderFormUpdate("priceWithDiscount", Number(e.target.value))
         }
       />
       <label>Headline/copy:</label>
       <textarea
         defaultValue={preDefinedObject.headline}
-        onChange={(e) => renderForm("headline", e.target.value)}
+        onChange={(e) => renderFormUpdate("headline", e.target.value)}
       ></textarea>
       <label>Descrição:</label>
       <textarea
         defaultValue={preDefinedObject.description}
-        onChange={(e) => renderForm("description", e.target.value)}
+        onChange={(e) => renderFormUpdate("description", e.target.value)}
       ></textarea>
       <Button width="100%" onClick={() => submitUpdateProduct(productId)}>
         Editar produto

@@ -7,6 +7,7 @@ interface IProdcutsContext {
   products: ProductProps[];
   setProducts: (newState: ProductProps[]) => void;
   renderForm: (field: string, value: string | number) => void;
+  renderFormUpdate: (field: string, value: string | number) => void;
   submitProduct: (event: React.FormEvent<HTMLFormElement>) => void;
   submitUpdateProduct: (productId: string) => void;
   handleDeleteProduct: (productId: string | number | undefined) => void;
@@ -57,12 +58,10 @@ export default function ProductsContextProvider({
     getProducts();
   }, [categoryId]);
 
-  const form: any = useMemo(() => {
-    return {};
-  }, []);
+  let formRegister: any = {};
 
   const renderForm = (field: string, value: string | number) => {
-    form[field] = value;
+    formRegister[field] = value;
   };
 
   const submitProduct = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -73,7 +72,7 @@ export default function ProductsContextProvider({
     const product = {
       image: null,
       categoryId,
-      ...form,
+      ...formRegister,
     };
 
     const response = await fetch(
@@ -98,6 +97,12 @@ export default function ProductsContextProvider({
     }
   };
 
+  let formUpdate: any = {};
+
+  const renderFormUpdate = (field: string, value: string | number) => {
+    formUpdate[field] = value;
+  };
+
   const submitUpdateProduct = async (
     productId: number | undefined | string
   ) => {
@@ -107,7 +112,7 @@ export default function ProductsContextProvider({
       `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
       {
         method: "PUT",
-        body: JSON.stringify({ ...form }),
+        body: JSON.stringify({ ...formUpdate }),
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -126,6 +131,10 @@ export default function ProductsContextProvider({
         products[indexProduct] = product;
         setProducts([...products]);
       }
+
+      formUpdate = {};
+
+      console.log(formUpdate);
 
       alert("Produto alterado");
     } else {
@@ -173,6 +182,7 @@ export default function ProductsContextProvider({
         products,
         setProducts,
         renderForm,
+        renderFormUpdate,
         submitProduct,
         submitUpdateProduct,
         handleDeleteProduct,

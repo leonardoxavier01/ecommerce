@@ -34,7 +34,6 @@ export const BoxImage = styled.div`
 `;
 
 export const Text = styled.div`
-  background-color: beige;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
