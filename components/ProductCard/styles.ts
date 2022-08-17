@@ -38,7 +38,7 @@ export const Text = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: 221px;
-  height: 45px;
+  height: 40px;
   margin-bottom: 5px;
   overflow: hidden;
   span {
