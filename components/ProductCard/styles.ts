@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: 0 8px;
   width: 261px;
-  height: 421px;
+  height: 435px;
   border-radius: 10px;
   background-color: white;
   display: flex;
@@ -27,23 +27,24 @@ export const BoxImage = styled.div`
   height: 15rem;
   margin-bottom: 10px;
 
-  img{
+  img {
     max-width: 240px;
     max-height: 14rem;
   }
 `;
 
 export const Text = styled.div`
+  background-color: beige;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   width: 221px;
-  height: 40px;
+  height: 54px;
   margin-bottom: 5px;
   overflow: hidden;
   span {
     text-align: start;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: #282d2e;
   }
