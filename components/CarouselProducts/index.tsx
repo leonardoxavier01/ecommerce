@@ -35,27 +35,19 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
       <Carousel color="rgb(93, 45, 140, 0.2)" categoryName={categoryName}>
         {products.map((product) => (
           <div key={product.id}>
-            <Link
-              href={{
-                pathname: "/products/[slug]",
-                query: { slug: product.slug },
-              }}
-            >
-              <a>
-                <ProductCard
-                  slug={product.slug}
-                  name={product.name}
-                  headline={product.headline}
-                  image={
-                    product.image
-                      ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`
-                      : ""
-                  }
-                  price={product.price}
-                  priceWithDiscount={product.priceWithDiscount}
-                />
-              </a>
-            </Link>
+            <ProductCard
+              id={product.id}
+              slug={product.slug}
+              name={product.name}
+              headline={product.headline}
+              image={
+                product.image
+                  ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`
+                  : ""
+              }
+              price={product.price}
+              priceWithDiscount={product.priceWithDiscount}
+            />
           </div>
         ))}
       </Carousel>

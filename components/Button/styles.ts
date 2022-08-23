@@ -16,7 +16,7 @@ export const ButtonStyled = styled.button<IProps>`
   background-color: ${(props) => props.color || "#5d2d8c"};
   width: ${(props) => props.width || "226px"};
   color: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   border: none;
