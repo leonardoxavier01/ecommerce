@@ -46,7 +46,11 @@ const ProductCard = (props: ProductProps) => {
           priceWithDiscount={props.priceWithDiscount}
         />
       </PriceWrapper>
-      <Button onClick={() => addProductToCart(props.id)}>
+      <Button
+        onClick={() =>
+          addProductToCart(props.id, props.slug, props.priceWithDiscount)
+        }
+      >
         ADICIONAR AO CARRINHO
       </Button>
     </Container>
