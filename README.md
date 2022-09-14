@@ -12,6 +12,10 @@ npm ou yarn
 
 ### 🔧 Instalação
 
+Antes de inicar neste projeto você precisa estar com a Api de produtos devidamente configurada na sua máquina ou se preferir em um servidor remoto. Mas não se preocupe, eu já criei essa api e pode ser usada para qualquer tipo de produto. Para saber mais acesse [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api).
+
+Depois de ter feito todas as devidas configuções deixe-a
+
 No seu terminal dê o comando:
 
 ```
