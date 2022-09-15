@@ -13,6 +13,7 @@ import {
 } from "./styles";
 import imageUndefined from "../../assets/images/image-undefined.jpg";
 import ProductUpdate from "../ProductUpdate";
+import { baseUrl } from "../../services/baseUrl";
 
 const ProductsRegistered = () => {
   const { products } = useContext(ProductsContext);
@@ -27,7 +28,7 @@ const ProductsRegistered = () => {
                 <img
                   src={
                     product.image
-                      ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}?w=100&h=100&c=true`
+                      ? `${baseUrl}/images/${product.image}?w=100&h=100&c=true`
                       : ""
                   }
                   alt={`imagem do produto ${product.name}`}

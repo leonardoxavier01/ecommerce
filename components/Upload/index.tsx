@@ -1,4 +1,5 @@
 import React, { ChangeEventHandler } from "react";
+import { baseUrl } from "../../services/baseUrl";
 import { ContainerInputFile } from "./styles";
 
 interface IParamsProps {
@@ -18,21 +19,18 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
 
   const file = target.files.item(0);
 
-  const signedUrl = await fetch(
-    "https://quiet-anchorage-15734.herokuapp.com/admin/products/upload/sign-url",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        type: file?.type,
-        name: file?.name,
-        id: productId,
-      }),
-    }
-  );
+  const signedUrl = await fetch(`${baseUrl}/admin/products/upload/sign-url`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      type: file?.type,
+      name: file?.name,
+      id: productId,
+    }),
+  });
 
   const { url } = await signedUrl.json();
 
@@ -42,20 +40,17 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
   });
 
   if (upload.ok) {
-    const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          image: `products/${productId}/${file?.name}`,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/admin/products/${productId}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        image: `products/${productId}/${file?.name}`,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (response.ok) {
       alert("update concluido");

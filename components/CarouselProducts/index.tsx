@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { baseUrl } from "../../services/baseUrl";
 import { ProductProps } from "../../types/interfaces";
 import Carousel from "../Carousel";
 import ProductCard from "../ProductCard";
@@ -14,12 +15,12 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
   const [products, setProducts] = useState<ProductProps[]>([]);
 
   useEffect(() => {
-    fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/categories/${categoryId}/products`
-    )
+    fetch(`${baseUrl}/categories/${categoryId}/products`)
       .then((resp) => resp.json())
       .then(setProducts);
   }, [categoryId]);
+
+  console.log(baseUrl);
 
   return (
     <>
@@ -40,11 +41,7 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
               slug={product.slug}
               name={product.name}
               headline={product.headline}
-              image={
-                product.image
-                  ? `https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`
-                  : ""
-              }
+              image={product.image ? `${baseUrl}/images/${product.image}` : ""}
               price={product.price}
               priceWithDiscount={product.priceWithDiscount}
             />

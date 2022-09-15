@@ -5,15 +5,15 @@ import Link from "next/link";
 import ContainerPage from "../components/ContainerPage";
 import Carousel from "../components/Carousel";
 import CardCircle from "../components/CardCircle";
-import Marvel from "../assets/images/marvel.jpg";
 import Outdoor from "../components/Outdoor";
 import CarouselProducts from "../components/CarouselProducts";
 import FeaturedCategories from "../components/FeaturedCategories";
 import Head from "next/head";
 import categoriesCarousel from "../data/categoriesCarousel";
+import { baseUrl } from "../services/baseUrl";
 
 export const getServerSideProps = async (_context: NextPageContext) => {
-  const response = await fetch(`https://quiet-anchorage-15734.herokuapp.com/categories`);
+  const response = await fetch(`${baseUrl}/categories`);
   const categories = await response.json();
 
   return { props: { categories } };

@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 import { ProductProps } from "../../types/interfaces";
+import { baseUrl } from "../../services/baseUrl";
 
 interface IProdcutsContext {
   categoryId: string | undefined;
@@ -50,7 +51,7 @@ export default function ProductsContextProvider({
   useEffect(() => {
     const getProducts = async () => {
       const response = await fetch(
-        `https://quiet-anchorage-15734.herokuapp.com/categories/${categoryId}/products`
+        `${baseUrl}/categories/${categoryId}/products`
       );
       const data = await response.json();
       setProducts(data);
@@ -76,7 +77,7 @@ export default function ProductsContextProvider({
     };
 
     const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}/products`,
+      `${baseUrl}/admin/categories/${categoryId}/products`,
       {
         method: "POST",
         body: JSON.stringify(product),
@@ -108,18 +109,15 @@ export default function ProductsContextProvider({
   ) => {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({ ...formUpdate }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/admin/products/${productId}`, {
+      method: "PUT",
+      body: JSON.stringify({ ...formUpdate }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     if (response.ok) {
       const { product } = await response.json();
 
@@ -147,17 +145,14 @@ export default function ProductsContextProvider({
   ) => {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/products/${productId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/admin/products/${productId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (response.ok) {
       const indexProdcutDeleted = products.findIndex((objct) => {

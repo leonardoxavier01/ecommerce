@@ -11,6 +11,7 @@ import {
   WrapperTextButtons,
 } from "./styles";
 import { CartContext } from "../../contexts/cart";
+import { baseUrl } from "../../services/baseUrl";
 
 interface IProductInCart {
   productSlug: string | undefined;
@@ -27,7 +28,7 @@ const ProductInCart = ({ productSlug, qtd, price }: IProductInCart) => {
   console.log(productsCart);
 
   useEffect(() => {
-    fetch(`https://quiet-anchorage-15734.herokuapp.com/products/${productSlug}`)
+    fetch(`${baseUrl}/products/${productSlug}`)
       .then((resp) => resp.json())
       .then(setProduct);
   }, [productSlug]);
@@ -46,7 +47,7 @@ const ProductInCart = ({ productSlug, qtd, price }: IProductInCart) => {
             <BoxImage>
               {product && (
                 <img
-                  src={`https://quiet-anchorage-15734.herokuapp.com/images/${product?.image}`}
+                  src={`${baseUrl}/images/${product?.image}`}
                   alt={`imagem do produto ${product?.name}`}
                 />
               )}

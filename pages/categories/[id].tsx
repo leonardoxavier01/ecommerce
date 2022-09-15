@@ -6,6 +6,7 @@ import GridCards from "../../components/GridCards";
 import ProductCard from "../../components/ProductCard";
 import ContainerPage from "../../components/ContainerPage";
 import Head from "next/head";
+import { baseUrl } from "../../services/baseUrl";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { query } = context;
@@ -36,7 +37,7 @@ const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
                 <ProductCard
                   name={product.name}
                   headline={product.headline}
-                  image={`https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`}
+                  image={`${baseUrl}/images/${product.image}`}
                   price={product.price}
                   priceWithDiscount={product.priceWithDiscount}
                   slug={product.slug}

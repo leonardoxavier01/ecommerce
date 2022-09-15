@@ -12,11 +12,12 @@ import {
   WrapperProduct,
 } from "../../styles/pages/Product";
 import Head from "next/head";
+import { baseUrl } from "../../services/baseUrl";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { slug } = context.query;
 
-  const responseProduct = await fetch(`https://quiet-anchorage-15734.herokuapp.com/products/${slug}`);
+  const responseProduct = await fetch(`${baseUrl}/products/${slug}`);
 
   const productObject = await responseProduct.json();
 
@@ -39,7 +40,7 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
         <ProductDetails>
           <BoxImageProduct>
             <img
-              src={`https://quiet-anchorage-15734.herokuapp.com/images/${product.image}`}
+              src={`${baseUrl}/images/${product.image}`}
               alt={`imagem do produto ${product.name}`}
             />
           </BoxImageProduct>

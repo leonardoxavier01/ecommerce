@@ -3,6 +3,7 @@ import Router from "next/router";
 import ContainerPage from "../../components/ContainerPage";
 import Input from "../../components/Input";
 import { ContainerLogin, StyledForm } from "../../styles/pages/Auth";
+import { baseUrl } from "../../services/baseUrl";
 
 interface IAdminAuthProvider {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ const Login = () => {
     console.log(email);
     console.log(password);
 
-    const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/auth", {
+    const response = await fetch(`${baseUrl}/admin/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +74,7 @@ export const AdminAuthProvider = ({ children }: IAdminAuthProvider) => {
       const token = localStorage.getItem("token");
 
       if (token) {
-        const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/admin/me", {
+        const response = await fetch(`${baseUrl}/admin/me`, {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",

@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { baseUrl } from "../../services/baseUrl";
 import { CategoryProps } from "../../types/interfaces";
 
 interface ICategoriesContext {
@@ -40,7 +41,7 @@ export function CategoriesContextProvider({
   const [updateCategory, setUpdateCategory] = useState<string>("");
 
   const getCategories = async () => {
-    const response = await fetch("https://quiet-anchorage-15734.herokuapp.com/categories");
+    const response = await fetch(`${baseUrl}/categories`);
     const data = await response.json();
     setCategories(data);
   };
@@ -51,7 +52,7 @@ export function CategoriesContextProvider({
 
   const submitCategory = async () => {
     const token = localStorage.getItem("token");
-    const response = await fetch(`https://quiet-anchorage-15734.herokuapp.com/admin/categories`, {
+    const response = await fetch(`${baseUrl}/admin/categories`, {
       method: "POST",
       body: JSON.stringify({
         name: newCategory,
@@ -79,20 +80,17 @@ export function CategoriesContextProvider({
   const putCategory = async (categoryId: string) => {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}`,
-      {
-        method: "PUT",
-        body: JSON.stringify({
-          name: updateCategory,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/admin/categories/${categoryId}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        name: updateCategory,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (response.ok) {
       alert("Categoria alterada");
@@ -114,17 +112,14 @@ export function CategoriesContextProvider({
   const deleteCategory = async (categoryId: string) => {
     const token = localStorage.getItem("token");
 
-    const response = await fetch(
-      `https://quiet-anchorage-15734.herokuapp.com/admin/categories/${categoryId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const response = await fetch(`${baseUrl}/admin/categories/${categoryId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     if (response.ok) {
       alert("Categoria excluída");
