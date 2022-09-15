@@ -29,13 +29,18 @@ npm install ou yarn install
 ```
 Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo seu valor seja url da sua api, por exemplo:
 
-![print file .env](./assets/images/print-env.png)
+![print file .env](./assets/images/doc/print-env.png)
 
+Após ter configurado sua variável de ambiente, também temos que configurar a baseUrl dentro de /services:
 
-Para rodar a aplicação em modo de desenvolvimento:
+![print file .env](./assets/images/doc/print-baseUrl.png)
+
+Com isso nossa aplicação já pode funcionar consumir os dados da nossa [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api), para testar basta subir a aplicação em modo de desenvolvimento com comando:
+
 ```
 npm run dev
 ```
+
 E perfeito! agora nossa aplicação está funcionando.
 
 ## ⚙️ Início da aplicação
