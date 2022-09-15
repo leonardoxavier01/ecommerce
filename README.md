@@ -14,7 +14,7 @@ npm ou yarn
 
 Antes de inicar neste projeto você precisa estar com a Api de produtos devidamente configurada na sua máquina ou se preferir em um servidor remoto. Mas não se preocupe, eu já criei essa api e pode ser usada para qualquer tipo de produto. Para saber mais acesse [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api).
 
-Depois de ter feito todas as devidas configuções deixe-a
+Depois de ter feito todas as devidas configuções e api estiver funcionando podemos iniciar a aplicação.
 
 No seu terminal dê o comando:
 
@@ -27,6 +27,8 @@ E depois:
 ```
 npm install ou yarn install
 ```
+Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo seu valor seja link da sua api, por exemplo:
+
 
 Para rodar a aplicação no servidor:
 
