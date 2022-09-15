@@ -27,7 +27,9 @@ E depois:
 ```
 npm install ou yarn install
 ```
-Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo seu valor seja link da sua api, por exemplo:
+Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo seu valor seja url da sua api, por exemplo:
+
+![print file .env](./assets/images/print-env.png)
 
 
 Para rodar a aplicação no servidor:
