@@ -32,16 +32,11 @@ Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo 
 ![print file .env](./assets/images/print-env.png)
 
 
-Para rodar a aplicação no servidor:
-
+Para rodar a aplicação em modo de desenvolvimento:
 ```
-npm start
+npm run dev
 ```
-Para fazer um build da aplicação:
-
-```
-npm build ou yarn build
-```
+E perfeito! agora nossa aplicação está funcionando.
 
 ## ⚙️ Início da aplicação
 
