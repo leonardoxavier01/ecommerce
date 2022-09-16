@@ -132,8 +132,6 @@ export default function ProductsContextProvider({
 
       formUpdate = {};
 
-      console.log(formUpdate);
-
       alert("Produto alterado");
     } else {
       alert("Houve um erro");

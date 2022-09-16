@@ -54,7 +54,6 @@ const inputFileChanged: ChangeEventHandler<HTMLInputElement> = async (
 
     if (response.ok) {
       alert("update concluido");
-      console.log(response);
     } else {
       alert("update falhou");
     }

@@ -18,9 +18,6 @@ const Login = () => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log(email);
-    console.log(password);
-
     const response = await fetch(`${baseUrl}/admin/auth`, {
       method: "POST",
       headers: {

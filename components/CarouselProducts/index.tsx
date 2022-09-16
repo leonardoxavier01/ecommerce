@@ -20,8 +20,6 @@ const CarouselProducts = ({ categoryName, categoryId }: ICarouselProducts) => {
       .then(setProducts);
   }, [categoryId]);
 
-  console.log(baseUrl);
-
   return (
     <>
       <Link

@@ -22,10 +22,7 @@ interface IProductInCart {
 const ProductInCart = ({ productSlug, qtd, price }: IProductInCart) => {
   const [product, setProduct] = useState<ProductProps>();
 
-  const { productsCart, addProductToCart, removeProductToCart } =
-    useContext(CartContext);
-
-  console.log(productsCart);
+  const { addProductToCart, removeProductToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`${baseUrl}/products/${productSlug}`)

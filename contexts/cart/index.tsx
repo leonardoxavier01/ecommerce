@@ -18,6 +18,7 @@ interface ICartContext {
   ) => void;
   removeProductToCart: (productId: number | undefined | string) => void;
   clearCart: () => void;
+  quantityTotal: any;
 }
 
 const initialValue = {
@@ -26,6 +27,7 @@ const initialValue = {
   addProductToCart: () => {},
   removeProductToCart: () => {},
   clearCart: () => {},
+  quantityTotal: {},
 };
 
 export const CartContext = createContext<ICartContext>(initialValue);
@@ -36,6 +38,7 @@ interface ICartContextProps {
 
 export function CartContextProvider({ children }: ICartContextProps) {
   const [productsCart, setProductsCart] = useState<IProductCart[]>([]);
+  const [quantityTotal, setQuantityTotal] = useState({ total: 0 });
 
   const addProductToCart = (
     productId: number | undefined | string,
@@ -59,6 +62,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
       item.totalPrice = item.price * item.qtd;
     }
 
+    setQuantityTotal({ total: quantityTotal.total + 1 });
     setProductsCart(copyProductsCart);
   };
 
@@ -77,10 +81,12 @@ export function CartContextProvider({ children }: ICartContextProps) {
       );
       setProductsCart(arrayFiltered);
     }
+    setQuantityTotal({ total: quantityTotal.total - 1 });
   };
 
   const clearCart = () => {
     setProductsCart([]);
+    setQuantityTotal({ total: 0 });
   };
 
   return (
@@ -91,6 +97,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
         addProductToCart,
         removeProductToCart,
         clearCart,
+        quantityTotal,
       }}
     >
       {children}

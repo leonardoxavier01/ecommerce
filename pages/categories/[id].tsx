@@ -18,7 +18,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
-  console.log(category.name);
   return (
     <ContainerPage>
       <Head>

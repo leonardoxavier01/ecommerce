@@ -5,13 +5,13 @@ import { IconStyled, StyledIconCart } from "./styles";
 import Link from "next/link";
 
 const IconCart = () => {
-  const { productsCart } = useContext(CartContext);
+  const { quantityTotal } = useContext(CartContext);
 
   return (
     <Link href={"/cart"} passHref>
       <StyledIconCart>
         <IconStyled>
-          <span>{productsCart.length}</span>
+          <span>{quantityTotal.total}</span>
           <FaShoppingCart size={37} color={"white"} />
         </IconStyled>
       </StyledIconCart>
