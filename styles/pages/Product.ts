@@ -65,11 +65,17 @@ export const Details = styled.div`
     text-align: start;
     border-bottom: 4px solid rgb(93, 45, 140, 0.2);
     overflow: hidden;
+    @media (max-width: 400px) {
+      font-size: 25px;
+    }
   }
 
   h2 {
     font-size: 20px;
     font-weight: 500;
+    @media (max-width: 400px) {
+      font-size: 15px;
+    }
   }
 
   @media (max-width: 700px) {
@@ -82,7 +88,7 @@ export const Description = styled.p`
   margin-top: 35px;
   padding: 5px 20px;
   text-align: start;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 500;
   color: #181b1c;
 `;
