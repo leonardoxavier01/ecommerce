@@ -25,25 +25,16 @@ const CategoryPage: NextPage<CategoryPageProps> = ({ category }) => {
       </Head>
       <GridCards categoryName={category.name}>
         {category.products.map((product: ProductProps) => (
-          <div key={product.id}>
-            <Link
-              href={{
-                pathname: "/products/[slug]",
-                query: { slug: product.slug },
-              }}
-            >
-              <a>
-                <ProductCard
-                  name={product.name}
-                  headline={product.headline}
-                  image={`${baseUrl}/images/${product.image}`}
-                  price={product.price}
-                  priceWithDiscount={product.priceWithDiscount}
-                  slug={product.slug}
-                />
-              </a>
-            </Link>
-          </div>
+          <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            headline={product.headline}
+            image={`${baseUrl}/images/${product.image}`}
+            price={product.price}
+            priceWithDiscount={product.priceWithDiscount}
+            slug={product.slug}
+          />
         ))}
       </GridCards>
     </ContainerPage>
