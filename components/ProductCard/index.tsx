@@ -50,6 +50,7 @@ const ProductCard = (props: ProductProps) => {
         onClick={() =>
           addProductToCart(props.id, props.slug, props.priceWithDiscount)
         }
+        hoverColor="#3E205B"
       >
         ADICIONAR AO CARRINHO
       </Button>

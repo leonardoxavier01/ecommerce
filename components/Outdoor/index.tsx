@@ -38,7 +38,9 @@ const Outdoor = () => {
         <h1>CONHEÇA A NOVA COLEÇÃO DE FUNKOS DA MARVEL</h1>
         <Link href={`/categories/${endpointCategoryIdOutdoor}`} passHref>
           <a>
-            <Button color="#EE171F">COLEÇÃO MARVEL</Button>
+            <Button color="#EE171F" hoverColor="#A21217">
+              COLEÇÃO MARVEL
+            </Button>
           </a>
         </Link>
       </TextImageButton>

@@ -19,7 +19,7 @@ const FeaturedCategories = () => {
         </div>
         <Link href="/categories/cl6kxa8a10162cswx934rj8z8" passHref>
           <a>
-            <Button>Ver mais</Button>
+            <Button hoverColor="#3E205B">Ver mais</Button>
           </a>
         </Link>
       </BoxButtonImage>
@@ -34,7 +34,7 @@ const FeaturedCategories = () => {
         </div>
         <Link href="/categories/cl6kxa1nu0155cswx0ygfmgtf" passHref>
           <a>
-            <Button>Ver mais</Button>
+            <Button hoverColor="#3E205B">Ver mais</Button>
           </a>
         </Link>
       </BoxButtonImage>
