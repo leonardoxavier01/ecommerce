@@ -1,7 +1,6 @@
 import type { NextPage, GetServerSideProps } from "next";
 import { CategoryPageProps, ProductProps } from "../../types/interfaces";
 import product_services from "../../services/product_services";
-import Link from "next/link";
 import GridCards from "../../components/GridCards";
 import ProductCard from "../../components/ProductCard";
 import ContainerPage from "../../components/ContainerPage";

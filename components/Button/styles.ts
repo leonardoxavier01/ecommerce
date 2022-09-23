@@ -3,7 +3,6 @@ import styled from "styled-components";
 interface IProps {
   color?: string;
   width?: string;
-  hoverColor?: string;
 }
 
 export const ButtonStyled = styled.button<IProps>`
@@ -23,6 +22,6 @@ export const ButtonStyled = styled.button<IProps>`
   border: none;
 
   :hover {
-    background-color: ${(props) => props.hoverColor};
+    filter: brightness(80%);
   }
 `;

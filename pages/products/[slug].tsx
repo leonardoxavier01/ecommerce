@@ -51,7 +51,7 @@ const ProductPage: NextPage<ProductPageProps> = ({ product }) => {
               price={product.price}
               priceWithDiscount={product.priceWithDiscount}
             />
-            <Button hoverColor="#3E205B">COMPRAR</Button>
+            <Button>COMPRAR</Button>
           </Details>
         </ProductDetails>
         <Description>{product.description}</Description>
