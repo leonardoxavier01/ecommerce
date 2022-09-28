@@ -1,3 +1,4 @@
+import  Router  from "next/router";
 import { createContext, ReactNode, useState } from "react";
 
 interface IProductCart {
@@ -19,6 +20,7 @@ interface ICartContext {
   removeProductToCart: (productId: number | undefined | string) => void;
   clearCart: () => void;
   quantityTotal: any;
+  submitForCheckout:()=> void
 }
 
 const initialValue = {
@@ -28,6 +30,7 @@ const initialValue = {
   removeProductToCart: () => {},
   clearCart: () => {},
   quantityTotal: {},
+  submitForCheckout:() => {}
 };
 
 export const CartContext = createContext<ICartContext>(initialValue);
@@ -89,6 +92,39 @@ export function CartContextProvider({ children }: ICartContextProps) {
     setQuantityTotal({ total: 0 });
   };
 
+  const productsForCheckout = productsCart.map((item) => {
+    const { id: productId, qtd: quantity } = item;
+
+    return {
+      productId,
+      quantity,
+    };
+  });
+
+  const submitForCheckout = async () => {
+    const response = await fetch(
+      `http://localhost:5000/create-checkout-session`,
+      {
+        method: "POST",
+        body: JSON.stringify({ productsForCheckout }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    );
+    if (response.ok) {
+      alert("Direcionando para pagina de pagamento");
+
+      const data = await response.json();
+
+      Router.push(data.data);
+    } else {
+      alert("Houve um erro por aqui. Tente novamente mais tarde");
+    }
+  };
+
+
   return (
     <CartContext.Provider
       value={{
@@ -98,6 +134,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
         removeProductToCart,
         clearCart,
         quantityTotal,
+        submitForCheckout
       }}
     >
       {children}

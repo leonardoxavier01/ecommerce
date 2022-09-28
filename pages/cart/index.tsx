@@ -7,9 +7,11 @@ import {
   WrapperCart,
 } from "../../styles/pages/Cart";
 import ProductInCart from "../../components/ProductInCart";
+import Button from "../../components/Button";
 
 const Cart = () => {
-  const { productsCart, clearCart } = useContext(CartContext);
+  const { productsCart, clearCart, submitForCheckout } =
+    useContext(CartContext);
 
   return (
     <ContainerPage color="#5d2d8c">
@@ -29,6 +31,7 @@ const Cart = () => {
                   price={product.totalPrice}
                 />
               ))}
+              <Button onClick={submitForCheckout}>Finalizar pedido</Button>
             </>
           ) : (
             <TextWrapper>
