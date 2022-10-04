@@ -10,7 +10,7 @@ export interface HomeProps {
 }
 
 export interface ProductProps {
-  id?: number;
+  id?: string | number;
   name: string;
   headline?: string;
   description?: string;
@@ -27,4 +27,9 @@ export interface ProductPageProps {
 
 export interface CategoryPageProps {
   category: CategoryProps;
+}
+
+export interface ItemForStripe {
+  productId: string | number | undefined;
+  quantity: number | undefined;
 }

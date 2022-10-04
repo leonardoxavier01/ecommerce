@@ -92,3 +92,27 @@ export const Description = styled.p`
   font-weight: 500;
   color: #181b1c;
 `;
+
+export const ContainerButtons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    button {
+      width: 80%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1150px) {
+    width: 90%;
+  }
+`;
