@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerCart = styled.div`
-  width: 80%;
+  width: 90%;
   min-height: 75vh;
   display: flex;
   align-items: center;

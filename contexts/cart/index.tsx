@@ -19,8 +19,9 @@ interface ICartContext {
   ) => void;
   removeProductToCart: (productId: number | undefined | string) => void;
   clearCart: () => void;
-  quantityTotal: any;
+  quantityTotal: { total: number };
   submitForCheckout: () => void;
+  totalPriceCart: number | null;
 }
 
 const initialValue = {
@@ -29,8 +30,9 @@ const initialValue = {
   addProductToCart: () => {},
   removeProductToCart: () => {},
   clearCart: () => {},
-  quantityTotal: {},
+  quantityTotal: { total: 0 },
   submitForCheckout: () => {},
+  totalPriceCart: null,
 };
 
 export const CartContext = createContext<ICartContext>(initialValue);
@@ -92,6 +94,11 @@ export function CartContextProvider({ children }: ICartContextProps) {
     setQuantityTotal({ total: 0 });
   };
 
+  const totalPriceCart = productsCart.reduce(getTotal, 0);
+  function getTotal(totalTest: number, item: { price: number; qtd: number }) {
+    return totalTest + item.price * item.qtd;
+  }
+
   const arrayStripe = productsCart.map((item) => {
     const { id: productId, qtd: quantity } = item;
 
@@ -134,6 +141,7 @@ export function CartContextProvider({ children }: ICartContextProps) {
         clearCart,
         quantityTotal,
         submitForCheckout,
+        totalPriceCart,
       }}
     >
       {children}

@@ -8,10 +8,16 @@ import {
 } from "../../styles/pages/Cart";
 import ProductInCart from "../../components/ProductInCart";
 import Button from "../../components/Button";
+import BRLFormat from "../../components/BRLFormat";
 
 const Cart = () => {
-  const { productsCart, clearCart, submitForCheckout } =
-    useContext(CartContext);
+  const {
+    productsCart,
+    clearCart,
+    submitForCheckout,
+    quantityTotal,
+    totalPriceCart,
+  } = useContext(CartContext);
 
   return (
     <ContainerPage color="#5d2d8c">
@@ -31,6 +37,10 @@ const Cart = () => {
                   price={product.totalPrice}
                 />
               ))}
+              <p>
+                Total({quantityTotal.total} itens):
+                <BRLFormat value={totalPriceCart} />
+              </p>
               <Button onClick={submitForCheckout}>Finalizar pedido</Button>
             </>
           ) : (
