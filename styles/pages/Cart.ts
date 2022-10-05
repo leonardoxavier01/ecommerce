@@ -1,31 +1,32 @@
 import styled from "styled-components";
 
 export const ContainerCart = styled.div`
-  width: 90%;
-  min-height: 75vh;
+  width: 92%;
   display: flex;
   align-items: center;
   justify-content: center;
 
   @media (max-width: 700px) {
     width: 95%;
-    min-height: 50vh;
   }
 `;
 
-export const WrapperCart = styled.div`
-  margin: 3rem 0;
+interface IWrapperProps {
+  height?: number;
+}
+
+export const WrapperCart = styled.div<IWrapperProps>`
+  margin: 2rem 0;
   border-radius: 10px;
-  min-height: 40rem;
+  min-height: ${(props) => props.height || 22}rem;
   width: 100%;
   background-color: white;
-  box-shadow: -1px 7px 15px -8px rgba(0, 0, 0, 0.64);
+  box-shadow: -1px 7px 15px -8px rgba(0, 0, 0, 0.5);
   padding: 3rem 2rem;
 
   @media (max-width: 700px) {
     flex-direction: column;
     padding: 1rem 1.5rem;
-    min-height: 35rem;
   }
 `;
 
@@ -34,12 +35,19 @@ export const TextWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 1rem;
 
   h1 {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #2f3841;
     padding: 0 0.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2f3841;
   }
 
   p {
@@ -56,6 +64,18 @@ export const TextWrapper = styled.div`
     align-items: flex-start;
     p {
       margin-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 540px) {
+    h1 {
+      font-size: 1.2rem;
+      padding: 0;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      padding: 0 0.5rem;
     }
   }
 `;
