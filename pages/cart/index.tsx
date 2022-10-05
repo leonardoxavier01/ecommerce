@@ -3,6 +3,7 @@ import { CartContext } from "../../contexts/cart";
 import ContainerPage from "../../components/ContainerPage";
 import {
   ContainerCart,
+  InitiateCheckout,
   TextWrapper,
   WrapperCart,
 } from "../../styles/pages/Cart";
@@ -37,11 +38,15 @@ const Cart = () => {
                   price={product.totalPrice}
                 />
               ))}
-              <p>
-                Total({quantityTotal.total} itens):
-                <BRLFormat value={totalPriceCart} />
-              </p>
-              <Button onClick={submitForCheckout}>Finalizar pedido</Button>
+              <InitiateCheckout>
+                <p>
+                  Total({quantityTotal.total} itens):{" "}
+                  <span>
+                    <BRLFormat value={totalPriceCart} />
+                  </span>
+                </p>
+                <Button onClick={submitForCheckout}>Finalizar pedido</Button>
+              </InitiateCheckout>
             </>
           ) : (
             <TextWrapper>
