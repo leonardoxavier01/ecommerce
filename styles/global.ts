@@ -14,7 +14,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif; 
-  background-color: #F1F1F1; 
+  background-color: #FAFAFA; 
 }
 
 a {
