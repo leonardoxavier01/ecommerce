@@ -1,0 +1,20 @@
+[
+    {
+        "channelName": "Email",
+        "channelLink": "mailto:leonardoxavier092@gmail.com",
+        "ChannelMessage": "Tem alguma dúvida? Podemos te ajudar pelo nosso canal de email.",
+        "ChannelValue": "suport.funkostore@gmail.com"
+    },
+    {
+        "channelName": "Telefone",
+        "channelLink": "tel: +5595900000000",
+        "ChannelMessage": "Você pode ligar para a funko store de segunda a sexta(8h às 18h) através do número abaixo.",
+        "ChannelValue": "95 90000-0000"
+    },
+    {
+        "channelName": "Whatsapp",
+        "channelLink": "https://web.whatsapp.com/",
+        "ChannelMessage": "Precisa de uma ajuda por mensagem? Entre em contato com nosso atendimento no whatsapp.",
+        "ChannelValue": "Ir para o chat no app"
+    }
+]
