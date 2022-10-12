@@ -27,6 +27,7 @@ E depois:
 ```
 npm install ou yarn install
 ```
+
 Na raiz do projeto crie um arquvio .env contendo a variável BACKEND_API e cujo seu valor seja url da sua api, por exemplo:
 
 ![print file .env](./assets/images/doc/print-file-env.png)
@@ -46,13 +47,14 @@ E perfeito! agora nossa aplicação está funcionando.
 ![print funko-store-ecommerce](./assets/images/doc/print-funko-store.png)
 
 ## ⚙️ Início como Admin do ecommerce
+
 Para acessar a área administrativa da aplicação na qual onde é feito o cadastro, alteração e exclusão de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir seus dados de acesso(email, password) que já estão configurados no nosso backend.
 
 ![print of login admin](./assets/images/doc/print-login-admin.png)
 
-Após feito a autenticação você já pode gerenciar categorias e produtos. 
+Após feito a autenticação você já pode gerenciar categorias e produtos.
 
-Como podemos ver abaixo você pode criar categorias, deletar e alterar. Quando clicar em ver produtos você vai para a página de produtos desta categoria. 
+Como podemos ver abaixo você pode criar categorias, deletar e alterar. Quando clicar em ver produtos você vai para a página de produtos desta categoria.
 
 ![print admin categories](./assets/images/doc/print-admin-categories.png)
 
@@ -60,24 +62,26 @@ Assim como na página administrativa de categorias, na página de produtos você
 
 ![print admin products](./assets/images/doc/print-admin-products.png)
 
-
 ## ⚙️ Personalização da aplicação
-Alguns dos dados da aplicação não são dinâmicos, e por conta disso você deve personalizá-los da forma como pereferir.
 
+Alguns dos dados em certos componentes não são dinâmicos, e por conta disso você deve personalizá-los da forma como pereferir.
+
+Segue o exemplo do carrosel de categorias, na qual os dados são consumidos do arquivo data/categoriesCarousel.ts que exporta um array de objetos.
+
+![print categories carousel](./assets/images/doc/print-categories-carousel.png)
+
+Para personalizá-lo é muito simples: altere o arquivo data/categoriesCarousel.ts, e para isso basta copiar o id de uma categoria já criada que pode ser encontrado em http://localhost:3000/admin/categories, escolher o nome, e adicionar o caminho de uma imagem.
+
+![print data categories carousel](./assets/images/doc/print-%20data-categories-carousel.png)
 
 ## 💾 Sobre os dados
 
-
-
 ## ⚙️ Obejtivo da pokedex
-
-
 
 ## 🛠️ Construído com
 
 - [React.js](https://reactjs.org/) - Biblioteca javascript
 - [Styled-components](https://styled-components.com/) - Css in Javascript
-
 
 ## 🎁 Expressões de gratidão
 
