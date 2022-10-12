@@ -2,6 +2,10 @@
 
 Ecommerce de colecionáveis da marca [funko](https://about.funko.com/)!
 
+### 📑 Sobre
+
+O projeto Ecommerce Funko-store é uma aplicação criada em [Next.js](https://nextjs.org/) que trabalha consumindo uma REST Api feita em [Node.js](https://nodejs.org/en/), com autenticação, e integração de pagamentos com a [Stripe](https://stripe.com/br).
+
 ### 📋 Pré-requisitos
 
 ```
@@ -74,14 +78,19 @@ Para personalizá-lo é muito simples: altere o arquivo data/categoriesCarousel.
 
 ![print data categories carousel](./assets/images/doc/print-%20data-categories-carousel.png)
 
-## 💾 Sobre os dados
+## ⚙️ Conclusão
 
-## ⚙️ Obejtivo da pokedex
+Agora você tem um projeto de ecommerce muito bem feito e funcional, com consumo de REST Api, deploy de imagens, e integração de pagamento.
+
+O projeto é um modelo semente que pode sim ser melhorado conforme o tempo e a necessidade de aperfeiçoamento.
 
 ## 🛠️ Construído com
 
-- [React.js](https://reactjs.org/) - Biblioteca javascript
+- [Next.js](https://nextjs.org/) - Fremework React
+- [Typescript](https://www.typescriptlang.org/) - Linguagem tipada
 - [Styled-components](https://styled-components.com/) - Css in Javascript
+- [React-icons](https://react-icons.github.io/react-icons/) - Biblioteca de ícones
+- [React-number-format](https://github.com/s-yadav/react-number-format) - Biblioteca de formatadores de entrada/números
 
 ## 🎁 Expressões de gratidão
 
@@ -90,4 +99,4 @@ Para personalizá-lo é muito simples: altere o arquivo data/categoriesCarousel.
 
 ---
 
-⌨️ com ❤️ por Programação 😊
+⌨️ com ❤️ por Programação em especialmente React 😊
