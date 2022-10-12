@@ -48,7 +48,7 @@ E perfeito! agora nossa aplicação está funcionando.
 
 ## ⚙️ Início como Admin do ecommerce
 
-Para acessar a área administrativa da aplicação na qual onde é feito o cadastro, alteração e exclusão de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir seus dados de acesso(email, password) que já estão configurados no nosso backend.
+Para acessar a área administrativa da aplicação na qual são feito os cadastros, alterações e exclusões de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir suas credenciais de administrador(email, password) que já estão configurados no nosso backend.
 
 ![print of login admin](./assets/images/doc/print-login-admin.png)
 
