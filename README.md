@@ -4,7 +4,7 @@ Ecommerce de colecionáveis da marca [funko](https://about.funko.com/)!
 
 ### 📑 Sobre
 
-O projeto Ecommerce Funko-store é uma aplicação criada em [Next.js](https://nextjs.org/) que trabalha consumindo uma REST Api feita em [Node.js](https://nodejs.org/en/), com autenticação, e integração de pagamentos com a [Stripe](https://stripe.com/br).
+O projeto Ecommerce Funko-Store é uma aplicação criada em [Next.js](https://nextjs.org/) que consome uma REST Api feita em [Node.js](https://nodejs.org/en/), com autenticação e integração de pagamentos com a [Stripe](https://stripe.com/br).
 
 ### 📋 Pré-requisitos
 
@@ -16,9 +16,9 @@ npm ou yarn
 
 ### 🔧 Instalação
 
-Antes de inicar neste projeto você precisa estar com a Api de produtos devidamente configurada na sua máquina ou se preferir em um servidor remoto. Mas não se preocupe, eu já criei essa api e pode ser usada para qualquer tipo de produto. Para saber mais acesse [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api).
+Antes de inicar neste projeto você precisa estar com a api de produtos devidamente configurada na sua máquina ou se preferir em um servidor remoto. Mas não se preocupe, eu já criei essa api e pode ser usada para qualquer tipo de produto. Para saber mais acesse [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api).
 
-Depois de ter feito todas as devidas configuções e api estiver funcionando podemos iniciar a aplicação.
+Depois de ter feito todas as configurações e a api estiver funcionando, podemos iniciar a aplicação.
 
 No seu terminal dê o comando:
 
@@ -40,7 +40,7 @@ Após ter configurado sua variável de ambiente, também temos que configurar a 
 
 ![print file base-url](./assets/images/doc/print-file-base-url.png)
 
-Com isso nossa aplicação já pode funcionar e consumir os dados da nossa [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api), para testar basta subir a aplicação em modo de desenvolvimento com o comando:
+Com isso nossa aplicação já deve funcionar e consumir os dados da nossa [api-ecommerce](https://github.com/leonardoxavier01/ecommerce-api), para testar basta subir a aplicação em modo de desenvolvimento com o comando:
 
 ```
 npm run dev
@@ -52,7 +52,7 @@ E perfeito! agora nossa aplicação está funcionando.
 
 ## ⚙️ Início como Admin do ecommerce
 
-Para acessar a área administrativa da aplicação na qual são feito os cadastros, alterações e exclusões de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir suas credenciais de administrador(email, password) que já estão configurados no nosso backend.
+Para acessar a área administrativa da aplicação na qual serão feito os cadastros, alterações e exclusões de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir suas credenciais de administrador(email, password) que já estão configurados no nosso backend.
 
 ![print of login admin](./assets/images/doc/print-login-admin.png)
 
@@ -68,7 +68,7 @@ Assim como na página administrativa de categorias, na página de produtos você
 
 ## ⚙️ Personalização da aplicação
 
-Alguns dos dados em certos componentes não são dinâmicos, e por conta disso você deve personalizá-los da forma como pereferir.
+Alguns dos dados em certos componentes não são dinâmicos, e por conta disso você deve personalizá-los.
 
 Segue o exemplo do carrosel de categorias, na qual os dados são consumidos do arquivo data/categoriesCarousel.ts que exporta um array de objetos.
 
@@ -78,11 +78,11 @@ Para personalizá-lo é muito simples: altere o arquivo data/categoriesCarousel.
 
 ![print data categories carousel](./assets/images/doc/print-%20data-categories-carousel.png)
 
-## ⚙️ Conclusão
+## 🖊 Conclusão
 
 Agora você tem um projeto de ecommerce muito bem feito e funcional, com consumo de REST Api, deploy de imagens, e integração de pagamento.
 
-O projeto é um modelo semente que pode sim ser melhorado conforme o tempo e a necessidade de aperfeiçoamento.
+O projeto é um modelo semente que pode ser melhorado conforme o tempo e a necessidade de aperfeiçoamento.
 
 ## 🛠️ Construído com
 
