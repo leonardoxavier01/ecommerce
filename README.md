@@ -45,8 +45,24 @@ E perfeito! agora nossa aplicação está funcionando.
 
 ![print funko-store-ecommerce](./assets/images/doc/print-funko-store.png)
 
-## ⚙️ Início da aplicação
+## ⚙️ Início como Admin do ecommerce
+Para acessar a área administrativa da aplicação na qual onde é feito o cadastro, alteração ee exclusão de produtos e categorias, basta acessar http://localhost:3000/admin/categories e inserir seus dados de acesso(email, password) que já estão configurados no nosso backend.
 
+![print of login admin](./assets/images/doc/print-login-admin.png)
+
+Após feito a autenticação você já pode gerenciar categorias e produtos. 
+
+![print admin categories](./assets/images/doc/print-admin-categories.png)
+
+A cima você pode criar categorias, deletar e alterar. Quando clicar em ver produtos você vai para a página de produtos desta categoria. 
+
+![print admin products](./assets/images/doc/print-admin-products.png)
+
+Assim como na página administrativa de categorias, na página de produtos você também pode cadastrar, deletar e alterar produtos.
+
+
+## ⚙️ Personalização da aplicação
+Alguns dos dados da aplicação não são dinâmicos, e por conta disso você deve personalizá-los da forma como pereferir.
 
 
 ## 💾 Sobre os dados
